@@ -20,19 +20,9 @@
 
 👉 **[See Gaming Improvements Guide](GAMING-IMPROVEMENTS.md)** 👈
 
-<img width="650" alt="Config" src="https://github.com/Whisky-App/Whisky/assets/42140194/d0a405e8-76ee-48f0-92b5-165d184a576b">
+### 🎮 **Gaming-Focused Windows Emulator**
 
-Familiar UI that integrates seamlessly with macOS
-
-<div align="right">
-  <img width="650" alt="New Bottle" src="https://github.com/Whisky-App/Whisky/assets/42140194/ed1a0d69-d8fb-442b-9330-6816ba8981ba">
-
-  One-click bottle creation and management
-</div>
-
-<img width="650" alt="debug" src="https://user-images.githubusercontent.com/42140194/229176642-57b80801-d29b-4123-b1c2-f3b31408ffc6.png">
-
-Debug and profile with ease
+**Whisky** provides a native macOS interface for running Windows games on Apple Silicon Macs with optimized gaming performance through Wine, DXVK-macOS, D3DMetal, and Apple's Game Porting Toolkit.
 
 ---
 
