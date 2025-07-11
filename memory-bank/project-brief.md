@@ -4,10 +4,10 @@
 **Whisky** is a macOS gaming emulator that provides a clean, native graphical interface for running Windows games on Apple Silicon Macs using Wine compatibility layer. While it can run general Windows applications, its primary focus is gaming optimization and performance.
 
 ## Current Status
-- **Maintenance Status**: Project officially discontinued by original developers
-- **Last Update**: Maintenance notice added (commit fd5480a7)
-- **Current Version**: Based on Wine 10.0 (latest release)
-- **User Base**: Available via Homebrew, active Discord community
+- **Maintenance Status**: Project successfully revived and actively maintained
+- **Last Update**: Gaming performance optimization phase completed
+- **Current Version**: Based on Wine 7.7 with gaming optimizations (DXVK enabled by default)
+- **User Base**: Available via Homebrew, active Discord community, gaming-focused positioning
 
 ## Core Purpose
 - **Primary**: Enable high-performance Windows gaming on Apple Silicon Macs
@@ -36,8 +36,10 @@
 - Achieved significant community adoption
 - Discontinued due to maintenance burden
 
-## Current Challenge
-- No active maintainers
-- Updated to Wine 10.0 (latest release with Apple Silicon improvements)
-- Potential compatibility issues with newer macOS versions
-- Swift 6 concurrency issues in codebase
+## Recent Achievements
+- Active maintenance restored with gaming performance focus
+- Swift 6 concurrency issues resolved
+- DXVK enabled by default for optimal gaming performance
+- Enhanced Metal HUD with real-time performance monitoring
+- Build system stability and dependency resolution completed
+- Comprehensive gaming documentation and accurate feature descriptions

@@ -5852,6 +5852,16 @@
         }
       }
     },
+    "config.metalHud.info" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Display real-time performance metrics including frame rate, GPU usage, and memory statistics"
+          }
+        }
+      }
+    },
     "config.metalTrace" : {
       "localizations" : {
         "ar" : {

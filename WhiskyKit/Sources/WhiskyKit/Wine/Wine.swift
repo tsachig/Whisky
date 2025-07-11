@@ -100,6 +100,7 @@ public class Wine {
     public static func runProgram(
         at url: URL, args: [String] = [], bottle: Bottle, environment: [String: String] = [:]
     ) async throws {
+        // Enable DXVK if needed (optimized with caching)
         if bottle.settings.dxvk {
             try enableDXVK(bottle: bottle)
         }
@@ -215,14 +216,36 @@ public class Wine {
     }
 
     public static func enableDXVK(bottle: Bottle) throws {
+        let system32Path = bottle.url.appending(path: "drive_c").appending(path: "windows").appending(path: "system32")
+        let syswow64Path = bottle.url.appending(path: "drive_c").appending(path: "windows").appending(path: "syswow64")
+        
+        // Check if DXVK is already enabled to avoid unnecessary file operations
+        let dxvkMarker = system32Path.appending(path: "dxvk_enabled")
+        if FileManager.default.fileExists(atPath: dxvkMarker.path(percentEncoded: false)) {
+            return // DXVK already enabled
+        }
+        
         try FileManager.default.replaceDLLs(
-            in: bottle.url.appending(path: "drive_c").appending(path: "windows").appending(path: "system32"),
+            in: system32Path,
             withContentsIn: Wine.dxvkFolder.appending(path: "x64")
         )
         try FileManager.default.replaceDLLs(
-            in: bottle.url.appending(path: "drive_c").appending(path: "windows").appending(path: "syswow64"),
+            in: syswow64Path,
             withContentsIn: Wine.dxvkFolder.appending(path: "x32")
         )
+        
+        // Create marker file to indicate DXVK is enabled
+        try "".write(to: dxvkMarker, atomically: true, encoding: .utf8)
+    }
+    
+    public static func disableDXVK(bottle: Bottle) throws {
+        let system32Path = bottle.url.appending(path: "drive_c").appending(path: "windows").appending(path: "system32")
+        let dxvkMarker = system32Path.appending(path: "dxvk_enabled")
+        
+        // Remove DXVK marker file
+        if FileManager.default.fileExists(atPath: dxvkMarker.path(percentEncoded: false)) {
+            try FileManager.default.removeItem(at: dxvkMarker)
+        }
     }
 
     /// Construct an environment merging the bottle values with the given values

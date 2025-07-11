@@ -50,11 +50,21 @@ final class BottleVM: ObservableObject, @unchecked Sendable {
                     self.bottles.append(bottle)
                 }
 
-                bottle.settings.windowsVersion = winVersion
-                bottle.settings.name = bottleName
+                await MainActor.run {
+                    bottle.settings.windowsVersion = winVersion
+                    bottle.settings.name = bottleName
+                    
+                    // Enable DXVK by default for gaming-focused Whisky
+                    bottle.settings.dxvk = true
+                    bottle.settings.dxvkAsync = true
+                    bottle.settings.enhancedSync = .msync
+                }
+                
                 try await Wine.changeWinVersion(bottle: bottle, win: winVersion)
                 let wineVer = try await Wine.wineVersion()
-                bottle.settings.wineVersion = SemanticVersion(wineVer) ?? SemanticVersion(0, 0, 0)
+                await MainActor.run {
+                    bottle.settings.wineVersion = SemanticVersion(wineVer) ?? SemanticVersion(0, 0, 0)
+                }
                 // Add record
                 await MainActor.run {
                     self.bottlesList.paths.append(newBottleDir)

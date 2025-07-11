@@ -26,7 +26,13 @@
       "Bash(ls:*)",
       "Bash(mv:*)",
       "Bash(brew uninstall:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(wget:*)",
+      "Bash(tar:*)",
+      "Bash(otool:*)",
+      "Bash(shasum:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)"
     ],
     "deny": []
   }

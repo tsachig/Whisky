@@ -9,14 +9,14 @@
 
 ## 🎮 Project Revival: Gaming-Focused Whisky is Back!
 
-**Whisky development has been restored!** After being deprecated, Whisky is now actively maintained with a **gaming-focused approach** for Apple Silicon Macs. This major update prepares Whisky for Wine 10.0 and transforms it into a dedicated Windows gaming emulator.
+**Whisky development has been restored!** After being deprecated, Whisky is now actively maintained with a **gaming-focused approach** for Apple Silicon Macs. This major update optimizes gaming performance and transforms it into a dedicated Windows gaming emulator.
 
 ### 🚀 **What's New**
 - **🎮 Gaming-Focused**: Repositioned as a Windows gaming emulator
 - **📚 Complete Documentation**: Comprehensive gaming guides and setup instructions  
 - **🛠️ Modernized Codebase**: Swift 6 compatibility and build system updates
 - **🌟 Community Ready**: Gaming issue templates and compatibility reporting
-- **⚡ Wine 10.0 Ready**: Prepared for Wine 10.0 gaming improvements
+- **⚡ Gaming Optimized**: Enhanced DXVK, msync tuning, and Metal performance improvements
 
 👉 **[See Gaming Improvements Guide](GAMING-IMPROVEMENTS.md)** 👈
 
@@ -26,11 +26,11 @@
 
 ---
 
-**Whisky** is a gaming-focused Windows emulator for Apple Silicon Macs. Built with native SwiftUI, it provides a clean interface for running Windows games with no technical knowledge required. Whisky leverages Wine 10.0, DXVK-macOS, D3DMetal, and Apple's Game Porting Toolkit for optimal gaming performance on Apple Silicon.
+**Whisky** is a gaming-focused Windows emulator for Apple Silicon Macs. Built with native SwiftUI, it provides a clean interface for running Windows games with no technical knowledge required. Whisky leverages Wine with gaming optimizations, DXVK-macOS, D3DMetal, and Apple's Game Porting Toolkit for optimal gaming performance on Apple Silicon.
 
 ### 🎯 Gaming Features
-- **High-Performance Gaming**: Wine 10.0 with ARM64EC support
-- **DirectX 12 & Raytracing**: Enhanced gaming graphics support
+- **High-Performance Gaming**: Optimized Wine configuration with gaming enhancements
+- **DirectX 10/11 Performance**: DXVK enabled by default for dramatic performance improvement
 - **Apple Silicon Optimized**: Native performance with Game Porting Toolkit
 - **Advanced Gaming Graphics**: DXVK-macOS, D3DMetal, MoltenVK integration
 - **Gaming Performance Tools**: Metal HUD, DXVK HUD, performance monitoring
@@ -50,22 +50,25 @@ Whisky is on homebrew! Install with
 
 ## 🎮 Gaming Support & Compatibility
 
-### Wine 10.0 Gaming Improvements
-- **Better DirectX 12**: Enhanced support for modern games
-- **Raytracing Support**: DirectX 12 raytracing for compatible games
-- **Apple Silicon Gaming**: ARM64EC support for native performance
-- **High-DPI Gaming**: Automatic scaling for Retina displays
+### Gaming Performance Improvements
+- **Enhanced DirectX 10/11**: DXVK enabled by default for dramatic performance improvement
+- **Apple Silicon Optimization**: msync tuning and memory enhancements for native performance  
+- **Metal Performance**: Enhanced Metal HUD with logging for real-time monitoring
+- **Startup Optimization**: Cached DXVK setup for faster game launches
 
 ### Gaming Configuration
+- **DXVK (Enabled by Default)**: Dramatically improves DirectX 10/11 gaming performance
 - **DXVK Async**: Smoother shader compilation for gaming
-- **Metal HUD**: Real-time gaming performance monitoring
+- **Metal HUD**: Real-time gaming performance monitoring with frame rate, GPU usage, and memory metrics
 - **Enhanced Sync**: Apple Silicon-optimized msync for gaming
 - **Process Elevation**: "Run as Administrator" for games requiring it
+
+**💡 Gaming Tip**: DXVK is now enabled by default for optimal gaming performance. If you experience issues with older games, you can disable DXVK in bottle settings.
 
 ### Game Compatibility
 Some games need special configuration. Check out:
 - **[Gaming Wiki](https://github.com/IsaacMarovitz/Whisky/wiki/Game-Support)** - Game-specific setup guides
-- **[Wine 10.0 Gaming Improvements](GAMING-IMPROVEMENTS.md)** - New gaming features and setup
+- **[Gaming Performance Improvements](GAMING-IMPROVEMENTS.md)** - Gaming optimizations and setup guide
 - **Gaming Performance**: Use Metal HUD and DXVK HUD for optimization
 
 ---
@@ -81,7 +84,7 @@ Whisky is possible thanks to the magic of several projects:
 - [SemanticVersion](https://github.com/SwiftPackageIndex/SemanticVersion) by SwiftPackageIndex
 - [swift-argument-parser](https://github.com/apple/swift-argument-parser) by Apple
 - [SwiftTextTable](https://github.com/scottrhoyt/SwiftyTextTable) by scottrhoyt
-- [Wine 10.0](https://www.winehq.org) by WineHQ
+- [Wine](https://www.winehq.org) by WineHQ
 - D3DMetal by Apple
 
 Special thanks to Gcenx, ohaiibuzzle, and Nat Brown for their support and contributions!

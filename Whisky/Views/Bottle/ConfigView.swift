@@ -121,6 +121,12 @@ struct ConfigView: View {
                 Toggle(isOn: $bottle.settings.dxvk) {
                     Text("config.dxvk")
                 }
+                .onChange(of: bottle.settings.dxvk) { _, newValue in
+                    if !newValue {
+                        // Clean up DXVK marker when disabled
+                        try? Wine.disableDXVK(bottle: bottle)
+                    }
+                }
                 Toggle(isOn: $bottle.settings.dxvkAsync) {
                     Text("config.dxvk.async")
                 }
@@ -136,6 +142,7 @@ struct ConfigView: View {
             Section("config.title.metal", isExpanded: $metalSectionExpanded) {
                 Toggle(isOn: $bottle.settings.metalHud) {
                     Text("config.metalHud")
+                    Text("config.metalHud.info")
                 }
                 Toggle(isOn: $bottle.settings.metalTrace) {
                     Text("config.metalTrace")

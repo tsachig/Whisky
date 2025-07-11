@@ -1,20 +1,20 @@
-# Wine 10.0 Gaming Improvements in Whisky
+# Gaming Performance Improvements in Whisky
 
 ## 🎮 What's New for Gaming
 
-Whisky has been updated to Wine 10.0, bringing massive improvements for Windows gaming on Apple Silicon Macs. This represents a 2+ year leap forward from Wine 7.7.0.
+Whisky has been optimized with significant gaming performance improvements for Apple Silicon Macs. These enhancements focus on maximizing gaming performance while maintaining compatibility.
 
 ## 🚀 Key Gaming Benefits
 
 ### **Apple Silicon Gaming Optimizations**
-- **ARM64EC Support**: Native Apple Silicon architecture support for better gaming performance
-- **Game Porting Toolkit**: Enhanced integration with Apple's gaming optimization tools
-- **Metal Integration**: Improved Metal graphics API support for macOS gaming
+- **Enhanced msync**: Optimized Apple Silicon synchronization with increased queue size for gaming workloads
+- **Game Porting Toolkit**: Integration with Apple's gaming optimization tools
+- **Metal Performance**: Enhanced Metal graphics API support with HUD logging for macOS gaming
 
 ### **Enhanced DirectX Gaming**
-- **DirectX 12**: Significantly improved DirectX 12 support for modern games
-- **Raytracing**: Enhanced DirectX 12 raytracing support for compatible games
-- **DXVK Improvements**: Better DirectX to Vulkan translation for gaming performance
+- **DXVK Enabled by Default**: Dramatic DirectX 10/11 performance improvement out of the box
+- **DXVK Async**: Smoother shader compilation for better gaming experience
+- **DXVK Improvements**: Optimized DirectX to Vulkan translation for gaming performance
 
 ### **Graphics and Performance**
 - **High-DPI Gaming**: Automatic scaling for modern high-resolution displays
@@ -28,15 +28,38 @@ Whisky has been updated to Wine 10.0, bringing massive improvements for Windows 
 
 ## 🎯 Gaming Configuration Features
 
-### **DXVK Configuration**
+### **DXVK Configuration for Gaming**
+**DXVK is now enabled by default** for optimal gaming performance with DirectX 10/11 games.
+
+**When DXVK Helps Most:**
+- ✅ **DirectX 10/11 games** - Significant performance improvement
+- ✅ **Modern AAA games** - Better frame rates and stability
+- ✅ **Games with shader compilation issues** - DXVK Async helps
+- ✅ **Most Windows games** - General performance improvement
+
+**When to Disable DXVK:**
+- ❌ **Older DirectX 9 games** - May cause compatibility issues
+- ❌ **Games with rendering problems** - Some games may have visual glitches
+- ❌ **If performance is worse** - Rare cases where native DirectX performs better
+
+**How to Disable DXVK (if needed):**
+1. **Open your bottle settings**
+2. **Disable DXVK** in the DXVK section
+3. **Test your games** - most issues will be resolved
+
+**DXVK Gaming Features:**
 - **DXVK Async**: Improved asynchronous shader compilation for smoother gaming
 - **DXVK HUD**: Real-time performance monitoring during gaming
 - **Custom DXVK Settings**: Fine-tuned DXVK configuration for optimal gaming
 
 ### **Apple Silicon Optimizations**
-- **Metal HUD**: Native macOS graphics performance monitoring
+- **Metal HUD**: Native macOS graphics performance monitoring with real-time frame rate, GPU usage, and memory metrics
+- **Metal HUD Logging**: Performance data logging for analysis and optimization
 - **Metal Tracing**: Advanced graphics debugging and optimization
-- **msync**: Apple Silicon-optimized synchronization for better gaming performance
+- **msync**: Apple Silicon-optimized synchronization for better gaming performance with enhanced queue size for gaming workloads
+- **Metal Fences**: Enhanced GPU synchronization for better gaming performance
+- **Metal Argument Buffers**: Optimized memory management for complex gaming scenes
+- **Large Address Aware**: Enhanced memory access for gaming applications
 
 ### **DirectX Features**
 - **DirectX 12 Raytracing**: Toggle support for games with raytracing
@@ -48,6 +71,8 @@ Whisky has been updated to Wine 10.0, bringing massive improvements for Windows 
 ### **Core Gaming Performance**
 - **Memory Management**: Low Fragmentation Heap (LFH) for better gaming memory usage
 - **ASLR Support**: Address Space Layout Randomization for security
+- **Startup Optimization**: Cached DXVK setup for faster game launches
+- **Performance Caching**: Reduced file operations for improved startup times
 - **Network Improvements**: Better network interface change notifications
 
 ### **Gaming Compatibility**
@@ -81,7 +106,7 @@ Whisky has been updated to Wine 10.0, bringing massive improvements for Windows 
 1. **Check DirectX Version**: Ensure games are using DirectX 12 when available
 2. **Monitor Performance**: Use Metal HUD and DXVK HUD for diagnostics
 3. **Adjust Graphics Settings**: Fine-tune DXVK and Metal settings
-4. **Update Bottles**: Consider creating new bottles for Wine 10.0 benefits
+4. **Optimize Settings**: Enable DXVK and Metal HUD for best gaming performance
 
 ## 🔧 Advanced Gaming Configuration
 
@@ -102,7 +127,7 @@ Whisky has been updated to Wine 10.0, bringing massive improvements for Windows 
 
 ## 📈 Community Gaming Reports
 
-We're eager to hear about your gaming experiences with Wine 10.0! Please report:
+We're eager to hear about your gaming experiences with the new optimizations! Please report:
 - **Games that work better**: Frame rate improvements, compatibility fixes
 - **Games that need attention**: Performance issues or compatibility problems
 - **Configuration recommendations**: Optimal settings for specific games
@@ -110,11 +135,11 @@ We're eager to hear about your gaming experiences with Wine 10.0! Please report:
 
 ## 🎯 Next Steps
 
-1. **Update your gaming bottles** to take advantage of Wine 10.0
+1. **Create new gaming bottles** to take advantage of the optimizations
 2. **Test your favorite games** with the new configuration options
 3. **Share your results** with the gaming community
 4. **Report issues** to help improve gaming compatibility
 
 ---
 
-**Note**: This is a major gaming update. While existing bottles will continue to work, creating new bottles will give you access to all Wine 10.0 gaming improvements.
+**Note**: These are significant gaming optimizations. While existing bottles will continue to work, creating new bottles will give you access to all the gaming performance improvements including DXVK enabled by default.

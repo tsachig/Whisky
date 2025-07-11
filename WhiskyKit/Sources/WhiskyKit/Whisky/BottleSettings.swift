@@ -304,6 +304,8 @@ public struct BottleSettings: Codable, Equatable {
             wineEnv.updateValue("1", forKey: "WINEESYNC")
         case .msync:
             wineEnv.updateValue("1", forKey: "WINEMSYNC")
+            // Optimize msync queue size for gaming performance
+            wineEnv.updateValue("100", forKey: "WINEMSYNC_QLIMIT")
             // D3DM detects ESYNC and changes behaviour accordingly
             // so we have to lie to it so that it doesn't break
             // under MSYNC. Values hardcoded in lid3dshared.dylib
@@ -312,6 +314,7 @@ public struct BottleSettings: Codable, Equatable {
 
         if metalHud {
             wineEnv.updateValue("1", forKey: "MTL_HUD_ENABLED")
+            wineEnv.updateValue("1", forKey: "MTL_HUD_LOGGING_ENABLED")
         }
 
         if metalTrace {
@@ -325,5 +328,11 @@ public struct BottleSettings: Codable, Equatable {
         if dxrEnabled {
             wineEnv.updateValue("1", forKey: "D3DM_SUPPORT_DXR")
         }
+        
+        // Gaming performance optimizations for Apple Silicon
+        wineEnv.updateValue("1", forKey: "MVK_ALLOW_METAL_FENCES")
+        // Optimize memory management for gaming
+        wineEnv.updateValue("1", forKey: "MVK_USE_METAL_ARGUMENT_BUFFERS")
+        wineEnv.updateValue("1", forKey: "WINE_LARGE_ADDRESS_AWARE")
     }
 }
