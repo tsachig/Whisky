@@ -25,7 +25,8 @@
       "Bash(grep:*)",
       "Bash(ls:*)",
       "Bash(mv:*)",
-      "Bash(brew uninstall:*)"
+      "Bash(brew uninstall:*)",
+      "Bash(git commit:*)"
     ],
     "deny": []
   }

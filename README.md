@@ -7,11 +7,18 @@
   [![](https://img.shields.io/discord/1115955071549702235?style=for-the-badge)](https://discord.gg/CsqAfs9CnM)
 </div>
 
-## 🎮 Major Gaming Update - Wine 10.0
+## 🎮 Project Revival: Gaming-Focused Whisky is Back!
 
-**Whisky has been updated to Wine 10.0** with massive gaming improvements! This gaming-focused release brings ARM64EC support, enhanced DirectX 12, raytracing capabilities, and Apple Silicon gaming optimizations.
+**Whisky development has been restored!** After being deprecated, Whisky is now actively maintained with a **gaming-focused approach** for Apple Silicon Macs. This major update prepares Whisky for Wine 10.0 and transforms it into a dedicated Windows gaming emulator.
 
-👉 **[See What's New for Gaming](GAMING-IMPROVEMENTS.md)** 👈
+### 🚀 **What's New**
+- **🎮 Gaming-Focused**: Repositioned as a Windows gaming emulator
+- **📚 Complete Documentation**: Comprehensive gaming guides and setup instructions  
+- **🛠️ Modernized Codebase**: Swift 6 compatibility and build system updates
+- **🌟 Community Ready**: Gaming issue templates and compatibility reporting
+- **⚡ Wine 10.0 Ready**: Prepared for Wine 10.0 gaming improvements
+
+👉 **[See Gaming Improvements Guide](GAMING-IMPROVEMENTS.md)** 👈
 
 <img width="650" alt="Config" src="https://github.com/Whisky-App/Whisky/assets/42140194/d0a405e8-76ee-48f0-92b5-165d184a576b">
 
