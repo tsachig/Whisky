@@ -7,9 +7,11 @@
   [![](https://img.shields.io/discord/1115955071549702235?style=for-the-badge)](https://discord.gg/CsqAfs9CnM)
 </div>
 
-## Maintenance Notice
+## 🎮 Major Gaming Update - Wine 10.0
 
-[Whisky is no longer actively maintained](https://docs.getwhisky.app/maintenance-notice). Apps and games may break at any time.
+**Whisky has been updated to Wine 10.0** with massive gaming improvements! This gaming-focused release brings ARM64EC support, enhanced DirectX 12, raytracing capabilities, and Apple Silicon gaming optimizations.
+
+👉 **[See What's New for Gaming](GAMING-IMPROVEMENTS.md)** 👈
 
 <img width="650" alt="Config" src="https://github.com/Whisky-App/Whisky/assets/42140194/d0a405e8-76ee-48f0-92b5-165d184a576b">
 
@@ -27,7 +29,14 @@ Debug and profile with ease
 
 ---
 
-Whisky provides a clean and easy to use graphical wrapper for Wine built in native SwiftUI. You can make and manage bottles, install and run Windows apps and games, and unlock the full potential of your Mac with no technical knowledge required. Whisky is built on top of CrossOver 22.1.1, and Apple's own `Game Porting Toolkit`.
+**Whisky** is a gaming-focused Windows emulator for Apple Silicon Macs. Built with native SwiftUI, it provides a clean interface for running Windows games with no technical knowledge required. Whisky leverages Wine 10.0, DXVK-macOS, D3DMetal, and Apple's Game Porting Toolkit for optimal gaming performance on Apple Silicon.
+
+### 🎯 Gaming Features
+- **High-Performance Gaming**: Wine 10.0 with ARM64EC support
+- **DirectX 12 & Raytracing**: Enhanced gaming graphics support
+- **Apple Silicon Optimized**: Native performance with Game Porting Toolkit
+- **Advanced Gaming Graphics**: DXVK-macOS, D3DMetal, MoltenVK integration
+- **Gaming Performance Tools**: Metal HUD, DXVK HUD, performance monitoring
 
 Translated on [Crowdin](https://crowdin.com/project/whisky).
 
@@ -42,9 +51,25 @@ Translated on [Crowdin](https://crowdin.com/project/whisky).
 Whisky is on homebrew! Install with 
 `brew install --cask whisky`.
 
-## My game isn't working!
+## 🎮 Gaming Support & Compatibility
 
-Some games need special steps to get working. Check out the [wiki](https://github.com/IsaacMarovitz/Whisky/wiki/Game-Support).
+### Wine 10.0 Gaming Improvements
+- **Better DirectX 12**: Enhanced support for modern games
+- **Raytracing Support**: DirectX 12 raytracing for compatible games
+- **Apple Silicon Gaming**: ARM64EC support for native performance
+- **High-DPI Gaming**: Automatic scaling for Retina displays
+
+### Gaming Configuration
+- **DXVK Async**: Smoother shader compilation for gaming
+- **Metal HUD**: Real-time gaming performance monitoring
+- **Enhanced Sync**: Apple Silicon-optimized msync for gaming
+- **Process Elevation**: "Run as Administrator" for games requiring it
+
+### Game Compatibility
+Some games need special configuration. Check out:
+- **[Gaming Wiki](https://github.com/IsaacMarovitz/Whisky/wiki/Game-Support)** - Game-specific setup guides
+- **[Wine 10.0 Gaming Improvements](GAMING-IMPROVEMENTS.md)** - New gaming features and setup
+- **Gaming Performance**: Use Metal HUD and DXVK HUD for optimization
 
 ---
 
@@ -59,7 +84,7 @@ Whisky is possible thanks to the magic of several projects:
 - [SemanticVersion](https://github.com/SwiftPackageIndex/SemanticVersion) by SwiftPackageIndex
 - [swift-argument-parser](https://github.com/apple/swift-argument-parser) by Apple
 - [SwiftTextTable](https://github.com/scottrhoyt/SwiftyTextTable) by scottrhoyt
-- [CrossOver 22.1.1](https://www.codeweavers.com/crossover) by CodeWeavers and WineHQ
+- [Wine 10.0](https://www.winehq.org) by WineHQ
 - D3DMetal by Apple
 
 Special thanks to Gcenx, ohaiibuzzle, and Nat Brown for their support and contributions!

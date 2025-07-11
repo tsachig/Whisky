@@ -1,18 +1,19 @@
 # Whisky Project Brief
 
 ## Project Overview
-**Whisky** is a macOS application that provides a clean, native graphical interface for running Windows applications and games on Apple Silicon Macs using Wine compatibility layer.
+**Whisky** is a macOS gaming emulator that provides a clean, native graphical interface for running Windows games on Apple Silicon Macs using Wine compatibility layer. While it can run general Windows applications, its primary focus is gaming optimization and performance.
 
 ## Current Status
 - **Maintenance Status**: Project officially discontinued by original developers
 - **Last Update**: Maintenance notice added (commit fd5480a7)
-- **Current Version**: Based on CrossOver 22.1.1 and Wine 7.7.0
+- **Current Version**: Based on Wine 10.0 (latest release)
 - **User Base**: Available via Homebrew, active Discord community
 
 ## Core Purpose
-- Simplify Wine usage for non-technical Mac users
-- Provide native macOS UI for Windows app compatibility
-- Enable gaming on Apple Silicon through Wine and Apple's Game Porting Toolkit
+- **Primary**: Enable high-performance Windows gaming on Apple Silicon Macs
+- Simplify Wine gaming setup for non-technical Mac users
+- Provide native macOS UI for gaming-focused Windows compatibility
+- Optimize gaming performance through Wine and Apple's Game Porting Toolkit
 
 ## Technical Foundation
 - **Language**: Swift with SwiftUI
@@ -20,12 +21,13 @@
 - **OS Requirement**: macOS Sonoma 14.0+
 - **Architecture**: MVVM pattern with modular design
 
-## Key Features
-- Bottle (Wine prefix) management
-- One-click Windows app installation
-- Gaming optimization with DXVK and D3DMetal
-- Native macOS integration
-- Program shortcuts and pins
+## Key Gaming Features
+- **Gaming-Optimized Bottles**: Wine prefix management tuned for gaming
+- **One-Click Game Installation**: Streamlined Windows game setup
+- **Advanced Gaming Graphics**: DXVK-macOS, D3DMetal, DirectX 12 raytracing
+- **Apple Silicon Gaming**: Game Porting Toolkit integration, ARM64EC support
+- **Performance Optimization**: msync, AVX support, Metal HUD/tracing
+- **Native macOS Integration**: Gaming-focused UI and shortcuts
 
 ## Development History
 - Created as user-friendly Wine wrapper
@@ -36,6 +38,6 @@
 
 ## Current Challenge
 - No active maintainers
-- Outdated Wine version (7.7.0 vs latest 9.0+)
+- Updated to Wine 10.0 (latest release with Apple Silicon improvements)
 - Potential compatibility issues with newer macOS versions
 - Swift 6 concurrency issues in codebase

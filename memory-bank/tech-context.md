@@ -1,7 +1,7 @@
 # Technical Context
 
 ## Architecture Overview
-**Whisky** follows a modular architecture with clear separation of concerns:
+**Whisky** is a gaming-focused Windows emulator that follows a modular architecture optimized for gaming performance:
 
 ### Core Components
 1. **Whisky** - Main SwiftUI application
@@ -16,17 +16,18 @@
 - **Swift Package Manager** - Dependency management
 
 ### Key Dependencies
-- **Wine 7.7.0** - Windows compatibility layer (based on CrossOver 22.1.1)
+- **Wine 10.0** - Windows compatibility layer (latest release with ARM64EC support)
 - **Sparkle** - Auto-update framework
 - **SemanticVersion** - Version management
 - **ArgumentParser** - CLI argument parsing
 - **SwiftyTextTable** - Table formatting utilities
 
-### Wine Integration
-- **Custom Distribution**: WhiskyWine hosted at data.getwhisky.app
+### Gaming-Optimized Wine Integration
+- **Custom Distribution**: WhiskyWine hosted at data.getwhisky.app (gaming-optimized)
 - **Installation Path**: ~/Application Support/app.getwhisky.app/Libraries/Wine/
-- **Graphics Stack**: DXVK-macOS, MoltenVK, D3DMetal
-- **Sync Method**: msync (Apple Silicon optimized)
+- **Gaming Graphics Stack**: DXVK-macOS, MoltenVK, D3DMetal, DirectX 12 raytracing
+- **Performance Optimizations**: msync (Apple Silicon optimized), AVX support
+- **Apple Gaming Integration**: Game Porting Toolkit, ARM64EC support
 
 ### File Structure
 ```
@@ -49,8 +50,9 @@ Whisky/
 - **GitHub Actions** - CI/CD pipeline
 - **Crowdin** - Localization management
 
-### System Requirements
-- **CPU**: Apple Silicon (M-series) only
+### Gaming System Requirements
+- **CPU**: Apple Silicon (M-series) only (gaming-optimized)
 - **OS**: macOS Sonoma 14.0+
-- **Graphics**: Metal support required
-- **Memory**: Sufficient for Wine and Windows applications
+- **Graphics**: Metal support required (gaming graphics stack)
+- **Memory**: Sufficient for Wine and Windows gaming applications
+- **Gaming Features**: DirectX 12, Vulkan, Metal HUD/tracing support

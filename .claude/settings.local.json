@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xcodebuild:*)",
+      "Bash(swift --version)",
+      "Bash(swift build)",
+      "Bash(swift package:*)",
+      "Bash(swiftlint:*)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(curl:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.winehq.org)",
+      "WebFetch(domain:wiki.winehq.org)",
+      "WebFetch(domain:gitlab.winehq.org)",
+      "Bash(brew search:*)",
+      "Bash(brew info:*)",
+      "Bash(brew install:*)",
+      "Bash(swift build:*)",
+      "WebFetch(domain:data.getwhisky.app)",
+      "Bash(swift run:*)",
+      "Bash(swift:*)",
+      "Bash(rm:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(mv:*)",
+      "Bash(brew uninstall:*)"
+    ],
+    "deny": []
+  }
+}

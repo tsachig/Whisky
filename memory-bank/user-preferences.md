@@ -5,6 +5,8 @@
 ### User Profile
 - **Technical Background**: Non-developer, no coding skills
 - **Role**: Tester and feedback provider
+- **Project Focus**: Gaming emulator development (Whisky is a Windows gaming emulator)
+- **Testing Capacity**: Limited capacity for game testing
 - **Preferred Interaction**: Simple, clear explanations of changes
 
 ### Communication Style
@@ -20,7 +22,9 @@
 - **Progress Tracking**: Use TodoWrite tool for transparency
 
 ### Quality Assurance
-- **Testing**: User will test all changes
+- **Testing**: User will test all changes (limited capacity for game testing)
+- **Gaming Focus**: All development decisions consider gaming use case
+- **Community Testing**: Rely on gaming community for compatibility feedback
 - **Validation**: Run existing tests and functionality checks
 - **Documentation**: README.md must be updated for user-facing changes
 - **Feedback Loop**: Clear communication of issues and blockers

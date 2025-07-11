@@ -1,0 +1,210 @@
+name: Gaming Issue
+description: Report a gaming-specific issue or compatibility problem.
+labels: ["gaming", "bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🎮 Gaming Issue Report
+        
+        **Whisky is now optimized for gaming with Wine 10.0!** This template helps us track gaming-specific issues and compatibility problems.
+        
+        📖 **Before reporting**: Check the [Gaming Wiki](https://github.com/IsaacMarovitz/Whisky/wiki/Game-Support) and [Wine 10.0 Gaming Improvements](https://github.com/IsaacMarovitz/Whisky/blob/main/GAMING-IMPROVEMENTS.md) for known solutions.
+        
+  - type: input
+    id: game-name
+    attributes:
+      label: Game Name
+      description: What game are you having issues with?
+      placeholder: "e.g., Cyberpunk 2077, Elden Ring, etc."
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Gaming Issue Type
+      description: What type of gaming issue are you experiencing?
+      options:
+        - "Game won't start/launch"
+        - "Poor performance/low FPS"
+        - "Graphics/rendering issues"
+        - "DirectX/DXVK problems"
+        - "Game crashes during play"
+        - "Audio/sound issues"
+        - "Input/controller problems"
+        - "Raytracing issues"
+        - "Other gaming issue"
+    validations:
+      required: true
+      
+  - type: textarea
+    id: game-description
+    attributes:
+      label: Game Description
+      description: Provide details about the game (genre, release year, DirectX version, etc.)
+      placeholder: "e.g., AAA RPG from 2020, uses DirectX 12, requires raytracing support"
+    validations:
+      required: true
+      
+  - type: textarea
+    id: gaming-issue-description
+    attributes:
+      label: Gaming Issue Description
+      description: Describe the gaming issue in detail
+      placeholder: "e.g., Game launches but has severe frame drops, DirectX 12 raytracing not working, etc."
+    validations:
+      required: true
+      
+  - type: textarea
+    id: gaming-steps
+    attributes:
+      label: Steps to Reproduce
+      description: Step-by-step instructions to reproduce this gaming issue
+      placeholder: |
+        1. Launch game in Whisky
+        2. Enable raytracing in game settings
+        3. Start new game
+        4. Performance drops to 5 FPS
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: gaming-config
+    attributes:
+      label: Gaming Configuration
+      description: What gaming configuration are you using?
+      options:
+        - "DXVK enabled"
+        - "DXVK disabled"
+        - "DXVK Async enabled"
+        - "Metal HUD enabled"
+        - "DirectX 12 raytracing enabled"
+        - "Default configuration"
+        - "Custom configuration"
+    validations:
+      required: true
+      
+  - type: textarea
+    id: gaming-settings
+    attributes:
+      label: Gaming Settings
+      description: |
+        Provide your gaming-specific settings:
+        - DXVK settings (async, HUD, etc.)
+        - DirectX version
+        - Raytracing enabled/disabled
+        - Metal HUD/tracing settings
+        - Any custom gaming configurations
+      placeholder: |
+        DXVK: Enabled with async
+        DXVK HUD: FPS display
+        DirectX: 12 with raytracing
+        Metal HUD: Enabled
+        Windows version: Windows 10
+      render: yaml
+    validations:
+      required: true
+      
+  - type: textarea
+    id: gaming-performance
+    attributes:
+      label: Gaming Performance
+      description: |
+        Provide performance details:
+        - FPS (frames per second)
+        - Resolution and graphics settings
+        - Performance with/without DXVK
+        - Any performance monitoring data
+      placeholder: |
+        FPS: 15-20 (expected 60+)
+        Resolution: 1920x1080
+        Graphics: High settings
+        DXVK HUD shows GPU usage at 100%
+        Metal HUD shows high memory usage
+        
+  - type: textarea
+    id: gaming-logs
+    attributes:
+      label: Gaming Logs
+      description: |
+        **Important**: Provide gaming-specific logs from Wine process (CMD + L in Whisky)
+        Look for DXVK, DirectX, or graphics-related errors in the logs.
+      render: bash
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: wine-version
+    attributes:
+      label: Wine Version
+      description: What Wine version is your bottle using?
+      options:
+        - "Wine 10.0 (latest)"
+        - "Wine 7.7.0 (older)"
+        - "Unknown"
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: whisky-version
+    attributes:
+      label: Whisky Version
+      description: What version of Whisky are you using?
+      options:
+        - "Latest (Wine 10.0 update)"
+        - "2.3.2 (older)"
+        - "<2.3.2 (older)"
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: mac-specs
+    attributes:
+      label: Apple Silicon Mac
+      description: What Mac are you using for gaming?
+      options:
+        - "MacBook Pro M1"
+        - "MacBook Pro M2"
+        - "MacBook Pro M3"
+        - "MacBook Pro M4"
+        - "MacBook Air M1"
+        - "MacBook Air M2"
+        - "MacBook Air M3"
+        - "Mac Mini M1"
+        - "Mac Mini M2"
+        - "Mac Mini M4"
+        - "Mac Studio M1"
+        - "Mac Studio M2"
+        - "iMac M1"
+        - "iMac M3"
+        - "iMac M4"
+        - "Other Apple Silicon Mac"
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: macos-version
+    attributes:
+      label: macOS Version
+      description: What version of macOS are you using?
+      options:
+        - "Sequoia (macOS 15)"
+        - "Sonoma (macOS 14)"
+        - "Ventura (macOS 13)"
+    validations:
+      required: true
+      
+  - type: checkboxes
+    attributes:
+      label: Gaming Issue Checklist
+      description: Please confirm you've checked these gaming resources
+      options:
+        - label: "I've checked the Gaming Wiki for this game"
+          required: true
+        - label: "I've read the Wine 10.0 Gaming Improvements documentation"
+          required: true
+        - label: "I've tried different gaming configurations (DXVK, DirectX settings)"
+          required: true
+        - label: "My issue is written in clear English"
+          required: true

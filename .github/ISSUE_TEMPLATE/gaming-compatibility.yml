@@ -1,0 +1,220 @@
+name: Gaming Compatibility Report
+description: Report game compatibility status with Wine 10.0
+labels: ["gaming", "compatibility", "wine-10"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🎮 Gaming Compatibility Report
+        
+        **Help us track game compatibility with Wine 10.0!** Use this template to report:
+        - ✅ Games that work well
+        - ⚠️ Games that work with issues
+        - ❌ Games that don't work
+        
+        Your reports help the gaming community and improve Whisky!
+        
+  - type: input
+    id: game-name
+    attributes:
+      label: Game Name
+      description: What game are you reporting on?
+      placeholder: "e.g., Cyberpunk 2077, Elden Ring, The Witcher 3"
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: compatibility-status
+    attributes:
+      label: Compatibility Status
+      description: How well does this game work with Wine 10.0?
+      options:
+        - "✅ Perfect - Works flawlessly"
+        - "✅ Excellent - Works very well with minor issues"
+        - "⚠️ Good - Works but has some issues"
+        - "⚠️ Fair - Playable but with significant issues"
+        - "❌ Poor - Major issues, barely playable"
+        - "❌ Broken - Doesn't work at all"
+    validations:
+      required: true
+      
+  - type: textarea
+    id: game-details
+    attributes:
+      label: Game Details
+      description: Provide basic information about the game
+      placeholder: |
+        Genre: Action RPG
+        Release Year: 2020
+        DirectX Version: DirectX 12
+        Raytracing: Yes
+        Store: Steam/Epic/GOG
+        Size: ~70GB
+    validations:
+      required: true
+      
+  - type: textarea
+    id: performance-report
+    attributes:
+      label: Performance Report
+      description: How does the game perform? Include FPS, resolution, settings
+      placeholder: |
+        Resolution: 1920x1080
+        Graphics Settings: High
+        FPS: 45-60 (smooth gameplay)
+        Raytracing: Working, 30-40 FPS
+        Loading Times: Fast
+        Overall Performance: Excellent
+    validations:
+      required: true
+      
+  - type: textarea
+    id: gaming-configuration
+    attributes:
+      label: Gaming Configuration Used
+      description: What gaming settings worked best for this game?
+      placeholder: |
+        DXVK: Enabled with async
+        DXVK HUD: Enabled for monitoring
+        DirectX: 12 with raytracing
+        Metal HUD: Enabled
+        Wine Version: 10.0
+        Windows Version: Windows 10
+        Enhanced Sync: msync
+        AVX: Enabled
+      render: yaml
+    validations:
+      required: true
+      
+  - type: textarea
+    id: issues-found
+    attributes:
+      label: Issues Found (if any)
+      description: |
+        List any issues you encountered:
+        - Graphics glitches
+        - Performance problems
+        - Audio issues
+        - Control problems
+        - Crashes
+      placeholder: |
+        - Minor texture flickering in cutscenes
+        - Occasional frame drops in busy scenes
+        - Game crashes after 2+ hours of play
+        - Controller vibration doesn't work
+        
+  - type: textarea
+    id: workarounds
+    attributes:
+      label: Workarounds/Solutions
+      description: Any workarounds or solutions you found for issues
+      placeholder: |
+        - Disabling raytracing fixes frame drops
+        - Using windowed mode prevents crashes
+        - Setting DXVK_ASYNC=1 improves shader compilation
+        - Specific game settings that work well
+        
+  - type: textarea
+    id: installation-notes
+    attributes:
+      label: Installation Notes
+      description: Any special installation requirements or steps
+      placeholder: |
+        - Required Visual C++ Redistributables
+        - Needed specific DirectX version
+        - Required registry tweaks
+        - Special bottle configuration
+        
+  - type: dropdown
+    id: recommended
+    attributes:
+      label: Recommendation
+      description: Would you recommend this game to other Whisky users?
+      options:
+        - "🎯 Highly Recommended - Great gaming experience"
+        - "👍 Recommended - Good gaming experience"
+        - "🤔 Maybe - Depends on tolerance for issues"
+        - "👎 Not Recommended - Too many issues"
+        - "❌ Avoid - Doesn't work well enough"
+    validations:
+      required: true
+      
+  - type: textarea
+    id: gaming-tips
+    attributes:
+      label: Gaming Tips
+      description: Share tips for other gamers wanting to play this game
+      placeholder: |
+        - Start with default DXVK settings
+        - Enable Metal HUD to monitor performance
+        - Use High graphics settings for best balance
+        - Disable raytracing if you want 60+ FPS
+        - Create dedicated gaming bottle for this game
+        
+  - type: dropdown
+    id: wine-version-used
+    attributes:
+      label: Wine Version Used
+      description: What Wine version did you test with?
+      options:
+        - "Wine 10.0 (latest)"
+        - "Wine 7.7.0 (older - please upgrade!)"
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: mac-gaming-setup
+    attributes:
+      label: Mac Gaming Setup
+      description: What Mac are you gaming on?
+      options:
+        - "MacBook Pro M1 (8-core GPU)"
+        - "MacBook Pro M1 (10-core GPU)"
+        - "MacBook Pro M2 (10-core GPU)"
+        - "MacBook Pro M2 (19-core GPU)"
+        - "MacBook Pro M3 (11-core GPU)"
+        - "MacBook Pro M3 (18-core GPU)"
+        - "MacBook Pro M4 (10-core GPU)"
+        - "MacBook Pro M4 (20-core GPU)"
+        - "MacBook Air M1 (7-core GPU)"
+        - "MacBook Air M1 (8-core GPU)"
+        - "MacBook Air M2 (8-core GPU)"
+        - "MacBook Air M2 (10-core GPU)"
+        - "MacBook Air M3 (8-core GPU)"
+        - "MacBook Air M3 (10-core GPU)"
+        - "Mac Mini M1"
+        - "Mac Mini M2"
+        - "Mac Mini M4"
+        - "Mac Studio M1 Max"
+        - "Mac Studio M1 Ultra"
+        - "Mac Studio M2 Max"
+        - "Mac Studio M2 Ultra"
+        - "iMac M1"
+        - "iMac M3"
+        - "iMac M4"
+        - "Other Apple Silicon Mac"
+    validations:
+      required: true
+      
+  - type: input
+    id: memory-amount
+    attributes:
+      label: Mac RAM Amount
+      description: How much RAM does your Mac have?
+      placeholder: "e.g., 16GB, 32GB, 64GB"
+    validations:
+      required: true
+      
+  - type: checkboxes
+    attributes:
+      label: Gaming Compatibility Checklist
+      description: Please confirm your testing
+      options:
+        - label: "I tested this game with Wine 10.0"
+          required: true
+        - label: "I tried different gaming configurations for optimal performance"
+          required: true
+        - label: "I'm willing to help other users with this game"
+          required: false
+        - label: "I can provide additional testing if needed"
+          required: false
