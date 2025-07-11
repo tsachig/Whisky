@@ -20,8 +20,6 @@ import Foundation
 import SemanticVersion
 import WhiskyKit
 
-// swiftlint:disable:next todo
-// TODO: Don't use unchecked!
 final class BottleVM: ObservableObject, @unchecked Sendable {
     @MainActor static let shared = BottleVM()
 

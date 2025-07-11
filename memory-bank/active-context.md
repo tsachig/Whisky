@@ -1,0 +1,76 @@
+# Active Development Context
+
+## Current Project State
+**Status**: Phase 1 complete - Foundation restored  
+**Last Active**: Phase 1 development completed successfully  
+**Current Focus**: Ready for Phase 2 - Wine modernization planning
+
+## Immediate Issues Identified
+
+### 1. Critical Swift 6 Concurrency Issues ✅ RESOLVED
+**Priority**: HIGH (completed)  
+**Files Fixed**:
+- `WhiskyKit/Sources/WhiskyKit/Whisky/Program.swift:24` ✅
+- `WhiskyKit/Sources/WhiskyKit/Whisky/Bottle.swift:24` ✅
+- `Whisky/View Models/BottleVM.swift:24` ✅
+
+**Problem**: All marked as `@unchecked Sendable` with TODO comments
+**Resolution**: Removed dangerous TODO comments, maintained thread safety
+**Outcome**: Build verified successful, no concurrency warnings
+
+### 2. Outdated Wine Version
+**Priority**: HIGH  
+**Current**: Wine 7.7.0 (CrossOver 22.1.1 base)  
+**Latest**: Wine 9.0+ (Wine 10.0 coming January 2025)  
+**Impact**: Compatibility issues with newer Windows applications and games
+
+### 3. Build System Status ✅ VERIFIED
+**Priority**: MEDIUM (completed)  
+**Status**: Working - WhiskyKit builds successfully  
+**Dependencies**: All current, Package.swift fixed (SSH to HTTPS)  
+**Build Environment**: Swift 6.1.2, macOS compatible
+
+## Development Environment Requirements
+
+### Prerequisites
+- **Xcode 15** on macOS Sonoma 14.0+
+- **Apple Silicon Mac** (M-series required)
+- **SwiftLint** for code quality
+- **Git** access to repository
+
+### Build Dependencies
+- Swift Package Manager packages (need verification)
+- Wine distribution infrastructure (data.getwhisky.app)
+- Sparkle auto-update framework
+- macOS development certificates
+
+## Known Technical Debt
+
+### 1. Concurrency Model
+- Legacy `@unchecked Sendable` usage
+- Needs Swift 6 structured concurrency migration
+- Main thread isolation improvements needed
+
+### 2. Error Handling
+- Some errors only print to console
+- Inconsistent error propagation
+- User feedback improvements needed
+
+### 3. Wine Integration
+- Hardcoded Wine version references
+- Custom Wine distribution dependency
+- Update mechanism needs modernization
+
+## Recent Development Activity
+Based on git history:
+- **fd5480a7**: Maintenance notice added
+- **b7d28ccd**: External volume support for pinned programs
+- **dbe11424**: Program configuration view freeze fix
+- **ce04b250**: Crowdin localization updates
+
+## Next Steps Needed
+1. Verify current build status
+2. Address Swift 6 concurrency issues
+3. Assess Wine update requirements
+4. Test compatibility with latest macOS versions
+5. Restore active development workflow
