@@ -125,6 +125,115 @@ struct ConfigView: View {
                     }
                 }
             }
+            
+            // DirectX Auto-Configuration Section
+            Section("DirectX Detection & Auto-Configuration") {
+                // Prioritize pinned programs (games users actually want to run)
+                let pinnedExecutables = bottle.programs.filter { program in
+                    program.pinned && program.url.lastPathComponent.hasSuffix(".exe")
+                }
+                
+                // Filter out system executables and utilities
+                let systemExecutables = ["iexplore.exe", "winecfg.exe", "notepad.exe", "regedit.exe", "cmd.exe", "wineboot.exe"]
+                let gameExecutables = bottle.programs.filter { program in
+                    let fileName = program.url.lastPathComponent.lowercased()
+                    return fileName.hasSuffix(".exe") && 
+                           !systemExecutables.contains(fileName) &&
+                           !fileName.contains("setup") && 
+                           !fileName.contains("install") && 
+                           !fileName.contains("unins") &&
+                           !fileName.contains("launcher") &&
+                           !fileName.contains("updater")
+                }
+                
+                // Priority: 1) Pinned executables, 2) Game executables, 3) Any executable
+                if let selectedProgram = pinnedExecutables.first ?? gameExecutables.first ?? bottle.programs.first(where: { $0.url.lastPathComponent.hasSuffix(".exe") }) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        VStack(alignment: .leading, spacing: 4) {
+                            HStack {
+                                Text("Analyzing: \(selectedProgram.url.lastPathComponent)")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                                Spacer()
+                                if pinnedExecutables.contains(selectedProgram) {
+                                    Text("📌 Pinned")
+                                        .font(.caption2)
+                                        .foregroundColor(.blue)
+                                } else if gameExecutables.contains(selectedProgram) {
+                                    Text("🎮 Game")
+                                        .font(.caption2)
+                                        .foregroundColor(.green)
+                                } else {
+                                    Text("📁 Other")
+                                        .font(.caption2)
+                                        .foregroundColor(.orange)
+                                }
+                            }
+                            HStack {
+                                Text("Detected DirectX Version:")
+                                    .font(.subheadline)
+                                    .fontWeight(.medium)
+                                Spacer()
+                                Text(selectedProgram.directXVersion.rawValue)
+                                    .font(.subheadline)
+                                    .foregroundColor(selectedProgram.directXVersion == .unknown ? .secondary : .primary)
+                            }
+                        }
+                        
+                        if selectedProgram.hasSuboptimalDXVKSettings {
+                            HStack {
+                                Image(systemName: "exclamationmark.triangle")
+                                    .foregroundColor(.orange)
+                                VStack(alignment: .leading) {
+                                    Text("Suboptimal DXVK Configuration")
+                                        .font(.caption)
+                                        .fontWeight(.medium)
+                                    Text("Current settings may not be optimal for \(selectedProgram.directXVersion.rawValue)")
+                                        .font(.caption2)
+                                        .foregroundStyle(.secondary)
+                                }
+                                Spacer()
+                                Button("Auto-Configure") {
+                                    selectedProgram.applyRecommendedDXVKSettings()
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .controlSize(.small)
+                            }
+                            .padding(.vertical, 4)
+                        } else {
+                            HStack {
+                                Image(systemName: "checkmark.circle")
+                                    .foregroundColor(.green)
+                                Text("DXVK settings are optimized for detected DirectX version")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        
+                        if selectedProgram.directXVersion != .unknown {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Recommended Settings:")
+                                    .font(.caption)
+                                    .fontWeight(.medium)
+                                let recommended = selectedProgram.recommendedDXVKSettings
+                                Text("• DXVK: \(recommended.dxvkEnabled ? "Enabled" : "Disabled")")
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                                if recommended.dxrEnabled {
+                                    Text("• DirectX Raytracing: Enabled")
+                                        .font(.caption2)
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    Text("No .exe files found in this bottle for DirectX detection")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+            
             Section("config.title.dxvk", isExpanded: $dxvkSectionExpanded) {
                 Toggle(isOn: $bottle.settings.dxvk) {
                     VStack(alignment: .leading) {

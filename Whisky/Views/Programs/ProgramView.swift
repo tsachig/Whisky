@@ -46,6 +46,56 @@ struct ProgramView: View {
                         .labelsHidden()
                 }
             }
+            
+            Section("DirectX Information") {
+                HStack {
+                    Text("Detected Version:")
+                        .fontWeight(.medium)
+                    Spacer()
+                    Text(program.directXVersion.rawValue)
+                        .foregroundColor(program.directXVersion == .unknown ? .secondary : .primary)
+                }
+                
+                if program.directXVersion != .unknown {
+                    let recommended = program.recommendedDXVKSettings
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Recommended Settings:")
+                            .font(.caption)
+                            .fontWeight(.medium)
+                        Text("• DXVK: \(recommended.dxvkEnabled ? "Enabled" : "Disabled")")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        if recommended.dxrEnabled {
+                            Text("• DirectX Raytracing: Enabled")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    
+                    if program.hasSuboptimalDXVKSettings {
+                        HStack {
+                            Image(systemName: "exclamationmark.triangle")
+                                .foregroundColor(.orange)
+                            Text("Current bottle settings may not be optimal")
+                                .font(.caption)
+                            Spacer()
+                            Button("Configure") {
+                                program.applyRecommendedDXVKSettings()
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .controlSize(.mini)
+                        }
+                    } else {
+                        HStack {
+                            Image(systemName: "checkmark.circle")
+                                .foregroundColor(.green)
+                            Text("Bottle settings are optimized")
+                                .font(.caption)
+                        }
+                    }
+                }
+            }
+            
             EnvironmentArgView(program: program, isExpanded: $envArgsSectionExpanded)
         }
         .bottomBar {

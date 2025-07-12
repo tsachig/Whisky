@@ -75,7 +75,7 @@ public final class Bottle: ObservableObject, Equatable, Hashable, Identifiable, 
     }
 
     /// Encode and save the bottle settings
-    private func saveSettings() {
+    public func saveSettings() {
         do {
             try settings.encode(to: self.metadataURL)
         } catch {

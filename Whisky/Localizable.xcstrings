@@ -1,6 +1,21 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "• DirectX Raytracing: Enabled" : {
+
+    },
+    "• DXVK: %@" : {
+
+    },
+    "🎮 Game" : {
+
+    },
+    "📁 Other" : {
+
+    },
+    "📌 Pinned" : {
+
+    },
     "alert.info" : {
       "localizations" : {
         "ar" : {
@@ -272,6 +287,15 @@
           }
         }
       }
+    },
+    "Analyzing: %@" : {
+
+    },
+    "Auto-Configure" : {
+
+    },
+    "Bottle settings are optimized" : {
+
     },
     "button.cDrive" : {
       "localizations" : {
@@ -3266,6 +3290,16 @@
         }
       }
     },
+    "config.avx.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enables advanced vector extensions for newer processors"
+          }
+        }
+      }
+    },
     "config.avx.warning" : {
       "localizations" : {
         "ar" : {
@@ -3398,16 +3432,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "May negatively impact performance"
-          }
-        }
-      }
-    },
-    "config.avx.description" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enables advanced vector extensions for newer processors"
           }
         }
       }
@@ -4230,16 +4254,6 @@
         }
       }
     },
-    "config.dxvk.description" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Translates DirectX to Vulkan for better gaming performance"
-          }
-        }
-      }
-    },
     "config.dxvk.async" : {
       "localizations" : {
         "ar" : {
@@ -4386,6 +4400,16 @@
         }
       }
     },
+    "config.dxvk.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Translates DirectX to Vulkan for better gaming performance"
+          }
+        }
+      }
+    },
     "config.dxvkHud" : {
       "localizations" : {
         "ar" : {
@@ -4518,6 +4542,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "DXVK HUD"
+          }
+        }
+      }
+    },
+    "config.dxvkHud.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shows performance overlay with graphics information while gaming"
           }
         }
       }
@@ -5334,16 +5368,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "MSync"
-          }
-        }
-      }
-    },
-    "config.dxvkHud.description" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Shows performance overlay with graphics information while gaming"
           }
         }
       }
@@ -7816,6 +7840,9 @@
         }
       }
     },
+    "Configure" : {
+
+    },
     "create.browse" : {
       "localizations" : {
         "ar" : {
@@ -8767,6 +8794,27 @@
           }
         }
       }
+    },
+    "Current bottle settings may not be optimal" : {
+
+    },
+    "Current settings may not be optimal for %@" : {
+
+    },
+    "Detected DirectX Version:" : {
+
+    },
+    "Detected Version:" : {
+
+    },
+    "DirectX Detection & Auto-Configuration" : {
+
+    },
+    "DirectX Information" : {
+
+    },
+    "DXVK settings are optimized for detected DirectX version" : {
+
     },
     "environment.add" : {
       "localizations" : {
@@ -10128,6 +10176,9 @@
           }
         }
       }
+    },
+    "No .exe files found in this bottle for DirectX detection" : {
+
     },
     "open.bottle" : {
       "localizations" : {
@@ -13529,6 +13580,9 @@
           }
         }
       }
+    },
+    "Recommended Settings:" : {
+
     },
     "rename.bottle.title" : {
       "localizations" : {
@@ -18561,6 +18615,9 @@
           }
         }
       }
+    },
+    "Suboptimal DXVK Configuration" : {
+
     },
     "tab.config" : {
       "localizations" : {

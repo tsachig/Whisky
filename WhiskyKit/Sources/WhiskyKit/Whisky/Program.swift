@@ -47,6 +47,28 @@ public final class Program: ObservableObject, Equatable, Hashable, Identifiable,
     }
 
     public let peFile: PEFile?
+    
+    /// Detected DirectX version from the executable
+    public var directXVersion: DirectXVersion {
+        return peFile?.directXVersion ?? .unknown
+    }
+    
+    /// Recommended DXVK settings based on detected DirectX version
+    public var recommendedDXVKSettings: (dxvkEnabled: Bool, dxrEnabled: Bool) {
+        return peFile?.recommendedDXVKSettings ?? (dxvkEnabled: true, dxrEnabled: false)
+    }
+    
+    /// Check if this program's DirectX version would benefit from different DXVK settings
+    public var hasSuboptimalDXVKSettings: Bool {
+        let recommended = recommendedDXVKSettings
+        let current = (
+            dxvkEnabled: bottle.settings.dxvk,
+            dxrEnabled: bottle.settings.dxrEnabled
+        )
+        
+        return recommended.dxvkEnabled != current.dxvkEnabled || 
+               recommended.dxrEnabled != current.dxrEnabled
+    }
 
     public init(url: URL, bottle: Bottle) {
         let name = url.lastPathComponent
@@ -84,6 +106,16 @@ public final class Program: ObservableObject, Equatable, Hashable, Identifiable,
             environment["LC_ALL"] = settings.locale.rawValue
         }
         return environment
+    }
+    
+    /// Apply recommended DXVK settings based on detected DirectX version
+    public func applyRecommendedDXVKSettings() {
+        let recommended = recommendedDXVKSettings
+        bottle.settings.dxvk = recommended.dxvkEnabled
+        bottle.settings.dxrEnabled = recommended.dxrEnabled
+        
+        // Save the updated bottle settings
+        bottle.saveSettings()
     }
 
     /// Save the settings to file

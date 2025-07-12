@@ -52,12 +52,15 @@ extension PEFile {
         public let checkSum: UInt32
         public let subsystem: UInt16
         public let dllCharacteristics: UInt16
-        public let sizeOfStackReserve: UInt32
-        public let sizeOfStackCommit: UInt32
-        public let sizeOfHeapReserve: UInt32
-        public let sizeOfHeapCommit: UInt32
+        public let sizeOfStackReserve: UInt64
+        public let sizeOfStackCommit: UInt64
+        public let sizeOfHeapReserve: UInt64
+        public let sizeOfHeapCommit: UInt64
         public let loaderFlags: UInt32
         public let numberOfRvaAndSizes: UInt32
+        
+        // Data Directories
+        public let dataDirectories: [DataDirectory]
 
         // swiftlint:disable:next function_body_length
         init?(handle: FileHandle, offset: UInt64) {
@@ -65,6 +68,7 @@ extension PEFile {
             let rawMagic = handle.extract(UInt16.self, offset: offset) ?? 0
             let magic = Magic(rawValue: rawMagic) ?? .unknown
             self.magic = magic
+            print("🔍 PE Magic: \(magic) (0x\(String(rawMagic, radix: 16)))")
             offset += 2
             self.majorLinkerVersion = handle.extract(UInt8.self, offset: offset) ?? 0
             offset += 1
@@ -128,17 +132,93 @@ extension PEFile {
             offset += 2
             self.dllCharacteristics = handle.extract(UInt16.self, offset: offset) ?? 0
             offset += 2
-            self.sizeOfStackReserve = handle.extract(UInt32.self, offset: offset) ?? 0
-            offset += 4
-            self.sizeOfStackCommit = handle.extract(UInt32.self, offset: offset) ?? 0
-            offset += 4
-            self.sizeOfHeapReserve = handle.extract(UInt32.self, offset: offset) ?? 0
-            offset += 4
-            self.sizeOfHeapCommit = handle.extract(UInt32.self, offset: offset) ?? 0
-            offset += 4
+            
+            // Stack and heap sizes depend on PE format
+            switch magic {
+            case .pe32Plus:
+                // PE32+ uses 64-bit fields
+                self.sizeOfStackReserve = handle.extract(UInt64.self, offset: offset) ?? 0
+                offset += 8
+                self.sizeOfStackCommit = handle.extract(UInt64.self, offset: offset) ?? 0
+                offset += 8
+                self.sizeOfHeapReserve = handle.extract(UInt64.self, offset: offset) ?? 0
+                offset += 8
+                self.sizeOfHeapCommit = handle.extract(UInt64.self, offset: offset) ?? 0
+                offset += 8
+            default:
+                // PE32 uses 32-bit fields
+                self.sizeOfStackReserve = UInt64(handle.extract(UInt32.self, offset: offset) ?? 0)
+                offset += 4
+                self.sizeOfStackCommit = UInt64(handle.extract(UInt32.self, offset: offset) ?? 0)
+                offset += 4
+                self.sizeOfHeapReserve = UInt64(handle.extract(UInt32.self, offset: offset) ?? 0)
+                offset += 4
+                self.sizeOfHeapCommit = UInt64(handle.extract(UInt32.self, offset: offset) ?? 0)
+                offset += 4
+            }
             self.loaderFlags = handle.extract(UInt32.self, offset: offset) ?? 0
             offset += 4
             self.numberOfRvaAndSizes = handle.extract(UInt32.self, offset: offset) ?? 0
+            offset += 4
+            
+            // Parse Data Directories
+            print("🔍 numberOfRvaAndSizes: \(numberOfRvaAndSizes)")
+            var dataDirectories: [DataDirectory] = []
+            for i in 0..<numberOfRvaAndSizes {
+                print("📂 Parsing data directory \(i) at offset 0x\(String(offset, radix: 16))")
+                if let directory = DataDirectory(handle: handle, offset: offset) {
+                    print("✅ Data directory \(i): RVA=0x\(String(directory.virtualAddress, radix: 16)), Size=\(directory.size)")
+                    dataDirectories.append(directory)
+                } else {
+                    print("❌ Failed to parse data directory \(i)")
+                }
+                offset += 8 // Size of DataDirectory (RVA + Size)
+            }
+            self.dataDirectories = dataDirectories
+            print("📊 Total data directories parsed: \(dataDirectories.count)")
+        }
+        
+        /// Get the import directory from data directories
+        public var importDirectory: DataDirectory? {
+            print("🔍 Data directories count: \(dataDirectories.count)")
+            for (index, dir) in dataDirectories.enumerated() {
+                print("📂 Data directory \(index): RVA=0x\(String(dir.virtualAddress, radix: 16)), Size=\(dir.size)")
+            }
+            
+            guard dataDirectories.indices.contains(1) else {
+                print("❌ Import directory (index 1) not found in data directories")
+                return nil
+            }
+            
+            let importDir = dataDirectories[1]
+            print("📥 Import directory: RVA=0x\(String(importDir.virtualAddress, radix: 16)), Size=\(importDir.size)")
+            return importDir
+        }
+    }
+    
+    /// Data Directory Entry
+    /// 
+    /// https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#optional-header-data-directories-image-only
+    public struct DataDirectory: Hashable, Equatable, Sendable {
+        public let virtualAddress: UInt32
+        public let size: UInt32
+        
+        init?(handle: FileHandle, offset: UInt64) {
+            var offset = offset
+            guard let va = handle.extract(UInt32.self, offset: offset) else {
+                print("❌ Failed to read virtualAddress at offset 0x\(String(offset, radix: 16))")
+                return nil
+            }
+            self.virtualAddress = va
+            offset += 4
+            
+            guard let sz = handle.extract(UInt32.self, offset: offset) else {
+                print("❌ Failed to read size at offset 0x\(String(offset, radix: 16))")
+                return nil
+            }
+            self.size = sz
+            
+            print("📋 DataDirectory: VA=0x\(String(virtualAddress, radix: 16)), Size=\(size)")
         }
     }
 }

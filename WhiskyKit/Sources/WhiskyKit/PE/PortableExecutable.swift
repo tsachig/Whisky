@@ -143,6 +143,58 @@ public struct PEFile: Hashable, Equatable, Sendable {
         return rsrc(handle: handle)
     }
 
+    /// The Import Table containing imported DLLs
+    public var importTable: ImportTable? {
+        guard let handle = try? FileHandle(forReadingFrom: url) else {
+            print("❌ Failed to open file handle for \(url.lastPathComponent)")
+            return nil
+        }
+        defer {
+            try? handle.close()
+        }
+        
+        guard let optionalHeader = optionalHeader else {
+            print("❌ No optional header found for \(url.lastPathComponent)")
+            return nil
+        }
+        
+        guard let importDirectory = optionalHeader.importDirectory else {
+            print("❌ No import directory found in data directories for \(url.lastPathComponent)")
+            return nil
+        }
+        
+        guard importDirectory.virtualAddress != 0 else {
+            print("❌ Import directory virtual address is 0 for \(url.lastPathComponent)")
+            return nil
+        }
+        
+        print("🔍 Processing import table for \(url.lastPathComponent)")
+        
+        return ImportTable(
+            handle: handle,
+            importDirectoryRVA: importDirectory.virtualAddress,
+            sections: sections
+        )
+    }
+    
+    /// Detected DirectX version from imported DLLs
+    public var directXVersion: DirectXVersion {
+        guard let importTable = importTable else {
+            return .unknown
+        }
+        
+        return DirectXVersion.detect(from: importTable.importedDLLs)
+    }
+    
+    /// Get recommended DXVK settings based on detected DirectX version
+    public var recommendedDXVKSettings: (dxvkEnabled: Bool, dxrEnabled: Bool) {
+        let dxVersion = directXVersion
+        return (
+            dxvkEnabled: dxVersion.recommendedDXVKEnabled,
+            dxrEnabled: dxVersion.recommendedDXREnabled
+        )
+    }
+
     /// The best icon for this executable
     /// - Returns: An `NSImage` if there is a renderable icon in the resource directory table
     public func bestIcon() -> NSImage? {
