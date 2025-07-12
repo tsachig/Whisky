@@ -26,12 +26,12 @@
 
 ---
 
-**Whisky** is a gaming-focused Windows emulator for Apple Silicon Macs. Built with native SwiftUI, it provides a clean interface for running Windows games with no technical knowledge required. Whisky leverages Wine 7.7 with gaming optimizations, DXVK-macOS, D3DMetal, and Apple's Game Porting Toolkit for optimal gaming performance on Apple Silicon.
+**Whisky** is a gaming-focused Windows emulator for Apple Silicon Macs. Built with native SwiftUI, it provides a clean interface for running Windows games with no technical knowledge required. Whisky leverages Wine 10.0 with ARM64EC support, DXVK-macOS, D3DMetal, and Apple's Game Porting Toolkit for optimal gaming performance on Apple Silicon.
 
 ### 🍷 Wine Version Information
-- **Current Wine Version**: Wine 7.7 (stable, gaming-optimized)
+- **Current Wine Version**: Wine 10.0 (ARM64EC support, gaming-optimized)
 - **Distribution**: Custom WhiskyWine build with Apple Silicon optimizations
-- **Gaming Focus**: Optimized for DirectX 10/11 gaming with DXVK integration
+- **Gaming Focus**: Enhanced DirectX 12 support with ARM64EC architecture
 
 ### 🎯 Gaming Features
 - **High-Performance Gaming**: Optimized Wine configuration with gaming enhancements
@@ -81,26 +81,26 @@ Some games need special configuration. Check out:
 
 ---
 
-## 🚀 Wine 10.0 Roadmap
+## 🚀 Wine 10.0 Implementation Complete
 
-**Coming Soon**: Whisky is preparing for a major Wine 10.0 update that will bring significant gaming improvements to Apple Silicon Macs.
+**Now Available**: Whisky has been upgraded to Wine 10.0 with significant gaming improvements for Apple Silicon Macs.
 
-### 🎯 **Wine 10.0 Gaming Improvements (In Development)**
+### 🎯 **Wine 10.0 Gaming Improvements (Live)**
 - **🏗️ ARM64EC Support**: Native Windows ARM64 application support
 - **🎨 Enhanced DirectX 12**: Improved raytracing and graphics performance  
 - **🖥️ Better High-DPI**: Improved scaling for modern gaming displays
 - **⚡ Process Elevation**: Full "Run as Administrator" support for demanding games
 - **🔧 Windows 11 Compatibility**: Enhanced support for newer Windows applications
 
-### 📋 **Development Status**
-- ✅ **Code Preparation**: Wine 10.0 integration code completed
-- ✅ **Gaming Optimizations**: DXVK and performance tuning ready
-- 🔄 **Binary Distribution**: Custom Wine 10.0 build in progress
-- ⏳ **Testing Phase**: Compatibility validation planned
-- ⏳ **Community Release**: Beta testing with gaming community
+### 📋 **Implementation Status**
+- ✅ **Code Integration**: Wine 10.0 fully integrated
+- ✅ **Gaming Optimizations**: DXVK and performance tuning active
+- ✅ **Binary Distribution**: Custom Wine 10.0 build deployed
+- ✅ **DirectX Detection**: Automatic optimization for all DirectX versions
+- ✅ **Production Ready**: Live for all new installations
 
-### 🤝 **Community Involvement**
-Interested in Wine 10.0 testing? Join our [Discord community](https://discord.gg/CsqAfs9CnM) for updates and early access opportunities.
+### 🤝 **Community Feedback**
+Experience Wine 10.0 gaming performance! Join our [Discord community](https://discord.gg/CsqAfs9CnM) to share your gaming results and optimizations.
 
 ---
 
