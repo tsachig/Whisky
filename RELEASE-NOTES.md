@@ -1,18 +1,24 @@
-# Release Notes - Wine 10.0 Gaming Update
+# Release Notes - Gaming Revival with Wine 10.0 Roadmap
 
-## 🎮 Major Gaming Release - Wine 10.0
+## 🎮 Major Gaming Release - Current & Future
 
 **Release Date**: Ready for Community Testing  
 **Focus**: Gaming Performance and Compatibility  
-**Wine Version**: Updated to Wine 10.0 (from 7.7.0)
+**Current Wine Version**: Wine 7.7 (stable, gaming-optimized)  
+**Future Wine Version**: Wine 10.0 (in active development)
 
 ## 🚀 Gaming Highlights
 
-### **Revolutionary Gaming Performance**
-- **Apple Silicon Gaming**: Native ARM64EC support for M-series processors
-- **DirectX 12 Enhanced**: Massive improvements for modern gaming
-- **Raytracing Support**: DirectX 12 raytracing for compatible games
-- **High-DPI Gaming**: Perfect scaling for Retina displays
+### **Current Gaming Performance (Wine 7.7)**
+- **Stable Gaming**: Battle-tested Wine 7.7 with gaming optimizations
+- **DXVK Enhanced**: DirectX 10/11 compatibility and performance
+- **Apple Silicon Optimized**: msync tuning for M-series processors
+- **High-DPI Gaming**: Excellent scaling for Retina displays
+
+### **Future Gaming Performance (Wine 10.0 Development)**
+- **Apple Silicon Gaming**: Planned ARM64EC support for M-series processors
+- **DirectX 12 Enhanced**: Planned improvements for modern gaming
+- **Raytracing Support**: Future DirectX 12 raytracing for compatible games
 
 ### **Gaming Graphics Stack**
 - **DXVK-macOS**: Advanced DirectX to Vulkan translation
@@ -37,7 +43,8 @@
 ## 🛠️ Technical Improvements
 
 ### **Core Gaming Engine**
-- **Wine 10.0**: 2+ year leap from Wine 7.7.0
+- **Wine 7.7**: Stable, gaming-optimized Wine distribution
+- **Wine 10.0**: Future upgrade in active development
 - **Swift 6**: Fixed all concurrency issues in gaming-critical code
 - **Build System**: Updated to latest Swift and Xcode compatibility
 - **Dependencies**: All packages updated to latest versions
@@ -92,13 +99,17 @@
 
 ## ⚠️ Important Notes
 
-### **Breaking Changes**
-- **Wine Version**: Default Wine version updated to 10.0 (affects new bottles only)
+### **Current Changes**
 - **Gaming Focus**: Project now explicitly focused on gaming emulation
-- **Compatibility**: Some older games may need reconfiguration
+- **DXVK Default**: DXVK enabled by default for new bottles
+- **Performance Optimizations**: Enhanced msync and Metal HUD integration
 
-### **Upgrade Recommendations**
-- **Create New Bottles**: Use Wine 10.0 for new gaming bottles
+### **Future Changes (Wine 10.0)**
+- **Wine Version**: Default Wine version will update to 10.0 (affects new bottles only)
+- **Compatibility**: Some older games may need reconfiguration with Wine 10.0
+
+### **Current Recommendations**
+- **Create New Bottles**: Use current Wine 7.7 for stable gaming
 - **Test Existing Games**: Verify compatibility with current bottles
 - **Update Configurations**: Try new gaming optimization settings
 - **Report Results**: Share gaming experiences with the community
@@ -112,8 +123,8 @@
 - **Storage**: SSD recommended for gaming performance
 
 ### **Gaming Setup Steps**
-1. **Download Latest Whisky**: Get the Wine 10.0 gaming release
-2. **Create Gaming Bottle**: Use Wine 10.0 for optimal gaming
+1. **Download Latest Whisky**: Get the gaming-focused release
+2. **Create Gaming Bottle**: Use Wine 7.7 for stable gaming
 3. **Configure Graphics**: Enable DXVK, Metal HUD, and gaming optimizations
 4. **Install Games**: Try your favorite Windows games
 5. **Report Results**: Share gaming experiences with the community
@@ -144,7 +155,7 @@
 
 **🎮 Ready to Experience Mac Gaming Like Never Before? 🎮**
 
-Download Whisky with Wine 10.0 and join the gaming revolution on Apple Silicon!
+Download the latest gaming-focused Whisky and join the gaming revolution on Apple Silicon!
 
 *Happy Gaming!*
 *The Whisky Gaming Team*

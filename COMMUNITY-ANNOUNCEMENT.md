@@ -1,15 +1,21 @@
-# 🎮 Major Gaming Update: Whisky Wine 10.0 Release
+# 🎮 Major Gaming Update: Whisky Revival with Wine 10.0 Roadmap
 
 ## 🚀 Whisky is Back with Gaming Focus!
 
-We're excited to announce that **Whisky has been revitalized** with a major gaming-focused update! After extensive development work, Whisky now runs on **Wine 10.0** and is optimized specifically for **Windows gaming on Apple Silicon Macs**.
+We're excited to announce that **Whisky has been revitalized** with a major gaming-focused update! After extensive development work, Whisky is now optimized specifically for **Windows gaming on Apple Silicon Macs** with **Wine 7.7** and has **Wine 10.0 in active development**.
 
 ## 🎯 What Makes This Special
 
-### **Wine 10.0 Gaming Revolution**
-- **2+ Year Leap**: Updated from Wine 7.7.0 to Wine 10.0 (January 2025 release)
+### **Current Gaming Excellence with Wine 7.7**
+- **Stable Gaming**: Battle-tested Wine 7.7 with gaming optimizations
+- **DXVK Enabled**: DirectX 10/11 compatibility and performance improvements
+- **Apple Silicon Optimized**: msync tuning and Metal HUD integration
+- **Gaming-Focused**: Every feature optimized for gaming performance
+
+### **Wine 10.0 Gaming Revolution (Coming Soon)**
+- **Future Update**: Wine 10.0 development in progress
 - **Apple Silicon Native**: ARM64EC support for true native gaming performance
-- **DirectX 12 Enhanced**: Massive improvements for modern gaming
+- **DirectX 12 Enhanced**: Planned improvements for modern gaming
 - **Raytracing Support**: DirectX 12 raytracing for compatible games
 
 ### **Gaming-First Approach**
@@ -66,13 +72,14 @@ We've repositioned Whisky as a **gaming-focused Windows emulator** rather than a
 ## 🎯 Community Gaming Initiative
 
 ### **We Need Your Help!**
-- **Test Your Games**: Try your favorite games with Wine 10.0
+- **Test Your Games**: Try your favorite games with current Wine 7.7
 - **Report Compatibility**: Use our new gaming compatibility reports
 - **Share Configurations**: Help others with game-specific settings
-- **Performance Benchmarks**: Share before/after comparisons
+- **Performance Benchmarks**: Share gaming performance results
+- **Wine 10.0 Testing**: Join our beta testing program when available
 
 ### **Gaming Resources**
-- **[Gaming Improvements Guide](GAMING-IMPROVEMENTS.md)**: Complete Wine 10.0 gaming guide
+- **[Gaming Improvements Guide](GAMING-IMPROVEMENTS.md)**: Complete gaming optimization guide
 - **[Gaming Wiki](https://github.com/IsaacMarovitz/Whisky/wiki/Game-Support)**: Game-specific setup instructions
 - **Gaming Issue Templates**: Specialized bug reporting for gaming
 - **Community Discord**: Gaming-focused discussion and support
@@ -94,8 +101,8 @@ We've repositioned Whisky as a **gaming-focused Windows emulator** rather than a
 ## 🎮 Get Started Gaming
 
 ### **Installation**
-1. **Download**: Get the latest Whisky with Wine 10.0
-2. **Create Gaming Bottle**: Use Wine 10.0 for new gaming bottles
+1. **Download**: Get the latest gaming-focused Whisky
+2. **Create Gaming Bottle**: Use optimized Wine 7.7 for new gaming bottles
 3. **Configure Graphics**: Enable DXVK, Metal HUD, and gaming optimizations
 4. **Install Games**: Try your favorite Windows games
 5. **Report Results**: Share your gaming experiences with the community
@@ -117,7 +124,7 @@ We've repositioned Whisky as a **gaming-focused Windows emulator** rather than a
 ### **Join the Gaming Revolution**
 This is just the beginning of a new era for Windows gaming on Apple Silicon Macs. With Wine 10.0 and our gaming-focused approach, we're making Mac gaming better than ever.
 
-**Ready to game?** Download Whisky with Wine 10.0 and join our gaming community!
+**Ready to game?** Download the latest gaming-focused Whisky and join our gaming community!
 
 ---
 

@@ -1,13 +1,20 @@
 # Changelog
 
-## [Unreleased] - Wine 10.0 Gaming Release
+## [Unreleased] - Gaming Revival with Wine 10.0 Roadmap
 
-### 🎮 Major Gaming Improvements
-- **BREAKING**: Updated to Wine 10.0 (from 7.7.0) for massive gaming performance improvements
-- **NEW**: ARM64EC support for native Apple Silicon gaming performance
-- **NEW**: Enhanced DirectX 12 support with improved raytracing capabilities
-- **NEW**: High-DPI gaming support with automatic scaling for modern displays
-- **NEW**: Process elevation support ("Run as Administrator") for games requiring elevated permissions
+### 🎮 Major Gaming Improvements (Current - Wine 7.7)
+- **STABLE**: Wine 7.7 with gaming optimizations and battle-tested stability
+- **NEW**: DXVK enabled by default for better DirectX 10/11 compatibility
+- **NEW**: Enhanced Metal HUD with real-time gaming performance monitoring
+- **NEW**: Optimized msync configuration for Apple Silicon gaming
+- **NEW**: Gaming-focused UI with clear configuration descriptions
+
+### 🚀 Future Gaming Improvements (Wine 10.0 Development)
+- **PLANNED**: Wine 10.0 upgrade for massive gaming performance improvements
+- **PLANNED**: ARM64EC support for native Apple Silicon gaming performance
+- **PLANNED**: Enhanced DirectX 12 support with improved raytracing capabilities
+- **PLANNED**: Improved High-DPI gaming support with automatic scaling
+- **PLANNED**: Process elevation support ("Run as Administrator") for demanding games
 
 ### 🚀 Gaming Performance Enhancements
 - **IMPROVED**: DXVK-macOS integration for better DirectX translation
@@ -34,10 +41,15 @@
 - **IMPROVED**: README.md updated for gaming emulator focus
 - **IMPROVED**: Technical documentation for gaming developers
 
-### ⚠️ Breaking Changes
-- Default Wine version updated from 7.7.0 to 10.0.0 (affects new bottles only)
+### ⚠️ Current Changes
+- DXVK enabled by default for new bottles (improves DirectX 10/11 compatibility)
+- Gaming-focused project positioning (Windows gaming emulator)
+- Enhanced user interface with clear gaming configuration descriptions
+
+### 🔮 Future Breaking Changes (Wine 10.0)
+- Default Wine version will update from 7.7.0 to 10.0.0 (affects new bottles only)
 - Existing bottles will continue to work with their configured Wine version
-- Some games may require reconfiguration to take advantage of new features
+- Some games may require reconfiguration to take advantage of new Wine 10.0 features
 
 ### 🔧 Developer Notes
 - Project now explicitly focused on gaming emulation
