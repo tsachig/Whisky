@@ -35,6 +35,7 @@
 
 ### 🎯 Gaming Features
 - **High-Performance Gaming**: Optimized Wine configuration with gaming enhancements
+- **DirectX Auto-Detection**: Smart detection of DirectX 9/10/11/12 with automatic DXVK optimization
 - **DirectX 10/11 Support**: DXVK enabled by default for better compatibility and reduced stuttering
 - **Apple Silicon Optimized**: Native performance with Game Porting Toolkit
 - **Advanced Gaming Graphics**: DXVK-macOS, D3DMetal, MoltenVK integration
