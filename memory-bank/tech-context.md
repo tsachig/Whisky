@@ -16,7 +16,8 @@
 - **Swift Package Manager** - Dependency management
 
 ### Key Dependencies
-- **Wine 10.0** - Windows compatibility layer (latest release with ARM64EC support)
+- **Wine 7.7** - Current Windows compatibility layer (stable, gaming-optimized)
+- **Wine 10.0** - Target upgrade with ARM64EC support (in development)
 - **Sparkle** - Auto-update framework
 - **SemanticVersion** - Version management
 - **ArgumentParser** - CLI argument parsing
