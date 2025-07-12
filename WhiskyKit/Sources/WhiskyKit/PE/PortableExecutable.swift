@@ -146,7 +146,6 @@ public struct PEFile: Hashable, Equatable, Sendable {
     /// The Import Table containing imported DLLs
     public var importTable: ImportTable? {
         guard let handle = try? FileHandle(forReadingFrom: url) else {
-            print("❌ Failed to open file handle for \(url.lastPathComponent)")
             return nil
         }
         defer {
@@ -154,21 +153,16 @@ public struct PEFile: Hashable, Equatable, Sendable {
         }
         
         guard let optionalHeader = optionalHeader else {
-            print("❌ No optional header found for \(url.lastPathComponent)")
             return nil
         }
         
         guard let importDirectory = optionalHeader.importDirectory else {
-            print("❌ No import directory found in data directories for \(url.lastPathComponent)")
             return nil
         }
         
         guard importDirectory.virtualAddress != 0 else {
-            print("❌ Import directory virtual address is 0 for \(url.lastPathComponent)")
             return nil
         }
-        
-        print("🔍 Processing import table for \(url.lastPathComponent)")
         
         return ImportTable(
             handle: handle,

@@ -40,7 +40,7 @@ Whisky/
 ├── WhiskyKit/                 # Core library
 │   ├── Whisky/               # Business logic
 │   ├── Wine/                 # Wine integration
-│   └── PE/                   # Windows PE parsing
+│   └── PE/                   # Windows PE parsing & DirectX detection
 ├── WhiskyCmd/                 # CLI interface
 └── WhiskyThumbnail/          # QuickLook extension
 ```
@@ -56,4 +56,4 @@ Whisky/
 - **OS**: macOS Sonoma 14.0+
 - **Graphics**: Metal support required (gaming graphics stack)
 - **Memory**: Sufficient for Wine and Windows gaming applications
-- **Gaming Features**: DirectX 12, Vulkan, Metal HUD/tracing support
+- **Gaming Features**: DirectX 9/10/11/12 auto-detection, Vulkan, Metal HUD/tracing support

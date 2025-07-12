@@ -68,7 +68,6 @@ extension PEFile {
             let rawMagic = handle.extract(UInt16.self, offset: offset) ?? 0
             let magic = Magic(rawValue: rawMagic) ?? .unknown
             self.magic = magic
-            print("🔍 PE Magic: \(magic) (0x\(String(rawMagic, radix: 16)))")
             offset += 2
             self.majorLinkerVersion = handle.extract(UInt8.self, offset: offset) ?? 0
             offset += 1
@@ -162,37 +161,23 @@ extension PEFile {
             offset += 4
             
             // Parse Data Directories
-            print("🔍 numberOfRvaAndSizes: \(numberOfRvaAndSizes)")
             var dataDirectories: [DataDirectory] = []
             for i in 0..<numberOfRvaAndSizes {
-                print("📂 Parsing data directory \(i) at offset 0x\(String(offset, radix: 16))")
                 if let directory = DataDirectory(handle: handle, offset: offset) {
-                    print("✅ Data directory \(i): RVA=0x\(String(directory.virtualAddress, radix: 16)), Size=\(directory.size)")
                     dataDirectories.append(directory)
-                } else {
-                    print("❌ Failed to parse data directory \(i)")
                 }
                 offset += 8 // Size of DataDirectory (RVA + Size)
             }
             self.dataDirectories = dataDirectories
-            print("📊 Total data directories parsed: \(dataDirectories.count)")
         }
         
         /// Get the import directory from data directories
         public var importDirectory: DataDirectory? {
-            print("🔍 Data directories count: \(dataDirectories.count)")
-            for (index, dir) in dataDirectories.enumerated() {
-                print("📂 Data directory \(index): RVA=0x\(String(dir.virtualAddress, radix: 16)), Size=\(dir.size)")
-            }
-            
             guard dataDirectories.indices.contains(1) else {
-                print("❌ Import directory (index 1) not found in data directories")
                 return nil
             }
             
-            let importDir = dataDirectories[1]
-            print("📥 Import directory: RVA=0x\(String(importDir.virtualAddress, radix: 16)), Size=\(importDir.size)")
-            return importDir
+            return dataDirectories[1]
         }
     }
     
@@ -206,19 +191,15 @@ extension PEFile {
         init?(handle: FileHandle, offset: UInt64) {
             var offset = offset
             guard let va = handle.extract(UInt32.self, offset: offset) else {
-                print("❌ Failed to read virtualAddress at offset 0x\(String(offset, radix: 16))")
                 return nil
             }
             self.virtualAddress = va
             offset += 4
             
             guard let sz = handle.extract(UInt32.self, offset: offset) else {
-                print("❌ Failed to read size at offset 0x\(String(offset, radix: 16))")
                 return nil
             }
             self.size = sz
-            
-            print("📋 DataDirectory: VA=0x\(String(virtualAddress, radix: 16)), Size=\(size)")
         }
     }
 }

@@ -50,7 +50,6 @@ public struct ImportDirectoryEntry: Hashable, Equatable, Sendable {
         
         // Resolve the DLL name
         guard let nameFileOffset = resolveRVA(rva: nameRVA, sections: sections) else {
-            print("❌ Failed to resolve RVA \(nameRVA) for DLL name")
             return nil
         }
         
@@ -58,9 +57,7 @@ public struct ImportDirectoryEntry: Hashable, Equatable, Sendable {
             try handle.seek(toOffset: UInt64(nameFileOffset))
             let nameData = try handle.readNullTerminatedString()
             self.dllName = nameData.lowercased()
-            print("📦 Found imported DLL: \(self.dllName)")
         } catch {
-            print("❌ Failed to read DLL name at offset \(nameFileOffset): \(error)")
             return nil
         }
     }
@@ -78,18 +75,12 @@ public struct ImportTable: Hashable, Equatable, Sendable {
     ///   - sections: Section table for RVA resolution
     init?(handle: FileHandle, importDirectoryRVA: UInt32, sections: [PEFile.Section]) {
         guard importDirectoryRVA != 0 else { 
-            print("❌ Import directory RVA is 0")
             return nil 
         }
         
-        print("🔍 Parsing import table at RVA: 0x\(String(importDirectoryRVA, radix: 16))")
-        
         guard let importDirectoryOffset = resolveRVA(rva: importDirectoryRVA, sections: sections) else {
-            print("❌ Failed to resolve import directory RVA \(importDirectoryRVA)")
             return nil
         }
-        
-        print("📍 Import directory file offset: 0x\(String(importDirectoryOffset, radix: 16))")
         
         var entries: [ImportDirectoryEntry] = []
         var offset = UInt64(importDirectoryOffset)
@@ -102,8 +93,6 @@ public struct ImportTable: Hashable, Equatable, Sendable {
         
         self.entries = entries
         self.importedDLLs = entries.map { $0.dllName }
-        
-        print("✅ Parsed \(entries.count) import entries: \(importedDLLs)")
     }
 }
 
@@ -121,37 +110,29 @@ public enum DirectXVersion: String, CaseIterable, Sendable {
     public static func detect(from dllNames: [String]) -> DirectXVersion {
         let dlls = Set(dllNames)
         
-        // Debug logging
-        print("🔍 DirectX Detection - Analyzing \(dlls.count) DLLs: \(dlls.sorted())")
-        
         // DirectX 12 detection (highest priority)
         if dlls.contains("d3d12.dll") {
-            print("✅ DirectX 12 detected (d3d12.dll)")
             return .dx12
         }
         
         // DirectX 11 detection - expanded patterns
         let dx11Patterns = ["d3d11.dll", "dxgi.dll", "d3d11_1.dll", "d3d11_2.dll", "d3d11_3.dll"]
         if dlls.intersection(dx11Patterns).count > 0 {
-            print("✅ DirectX 11 detected (\(dlls.intersection(dx11Patterns)))")
             return .dx11
         }
         
         // DirectX 10 detection - expanded patterns
         let dx10Patterns = ["d3d10.dll", "d3d10core.dll", "d3d10_1.dll", "d3d10_1core.dll", "d3d10effect.dll"]
         if dlls.intersection(dx10Patterns).count > 0 {
-            print("✅ DirectX 10 detected (\(dlls.intersection(dx10Patterns)))")
             return .dx10
         }
         
         // DirectX 9 detection - expanded patterns
         let dx9Patterns = ["d3d9.dll", "d3dx9_43.dll", "d3dx9_42.dll", "d3dx9_41.dll", "d3dx9_40.dll"]
         if dlls.intersection(dx9Patterns).count > 0 {
-            print("✅ DirectX 9 detected (\(dlls.intersection(dx9Patterns)))")
             return .dx9
         }
         
-        print("❌ No DirectX DLLs detected from known patterns")
         return .unknown
     }
     
