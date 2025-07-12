@@ -30,7 +30,7 @@
 
 ### 🎯 Gaming Features
 - **High-Performance Gaming**: Optimized Wine configuration with gaming enhancements
-- **DirectX 10/11 Performance**: DXVK enabled by default for dramatic performance improvement
+- **DirectX 10/11 Support**: DXVK enabled by default for better compatibility and reduced stuttering
 - **Apple Silicon Optimized**: Native performance with Game Porting Toolkit
 - **Advanced Gaming Graphics**: DXVK-macOS, D3DMetal, MoltenVK integration
 - **Gaming Performance Tools**: Metal HUD, DXVK HUD, performance monitoring
@@ -51,19 +51,19 @@ Whisky is on homebrew! Install with
 ## 🎮 Gaming Support & Compatibility
 
 ### Gaming Performance Improvements
-- **Enhanced DirectX 10/11**: DXVK enabled by default for dramatic performance improvement
+- **Enhanced DirectX 10/11**: DXVK enabled by default for better compatibility and reduced stuttering
 - **Apple Silicon Optimization**: msync tuning and memory enhancements for native performance  
 - **Metal Performance**: Enhanced Metal HUD with logging for real-time monitoring
 - **Startup Optimization**: Cached DXVK setup for faster game launches
 
 ### Gaming Configuration
-- **DXVK (Enabled by Default)**: Dramatically improves DirectX 10/11 gaming performance
+- **DXVK (Enabled by Default)**: Improves DirectX 10/11 compatibility and reduces stuttering
 - **DXVK Async**: Smoother shader compilation for gaming
 - **Metal HUD**: Real-time gaming performance monitoring with frame rate, GPU usage, and memory metrics
 - **Enhanced Sync**: Apple Silicon-optimized msync for gaming
 - **Process Elevation**: "Run as Administrator" for games requiring it
 
-**💡 Gaming Tip**: DXVK is now enabled by default for optimal gaming performance. If you experience issues with older games, you can disable DXVK in bottle settings.
+**💡 Gaming Tip**: DXVK is enabled by default to improve compatibility and reduce stuttering. Performance gains vary by game - some well-optimized games like Baldur's Gate 3 may not see significant FPS improvements. You can disable DXVK in bottle settings if needed.
 
 ### Game Compatibility
 Some games need special configuration. Check out:

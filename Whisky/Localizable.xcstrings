@@ -3402,6 +3402,16 @@
         }
       }
     },
+    "config.avx.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enables advanced vector extensions for newer processors"
+          }
+        }
+      }
+    },
     "config.buildVersion" : {
       "localizations" : {
         "ar" : {
@@ -4220,6 +4230,16 @@
         }
       }
     },
+    "config.dxvk.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Translates DirectX to Vulkan for better gaming performance"
+          }
+        }
+      }
+    },
     "config.dxvk.async" : {
       "localizations" : {
         "ar" : {
@@ -4352,6 +4372,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "非同步 DXVK"
+          }
+        }
+      }
+    },
+    "config.dxvk.async.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Improves DXVK performance with asynchronous shader compilation"
           }
         }
       }
@@ -5308,6 +5338,16 @@
         }
       }
     },
+    "config.dxvkHud.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shows performance overlay with graphics information while gaming"
+          }
+        }
+      }
+    },
     "config.enhancedSync" : {
       "localizations" : {
         "ar" : {
@@ -5440,6 +5480,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "增強同步"
+          }
+        }
+      }
+    },
+    "config.enhancedSync.description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Improves performance. Choose msync for best Apple Silicon performance, esync for compatibility."
           }
         }
       }

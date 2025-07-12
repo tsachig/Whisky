@@ -82,10 +82,15 @@ struct ConfigView: View {
                             }
                         })
                 }
-                Picker("config.enhancedSync", selection: $bottle.settings.enhancedSync) {
-                    Text("config.enhancedSync.none").tag(EnhancedSync.none)
-                    Text("config.enhacnedSync.esync").tag(EnhancedSync.esync)
-                    Text("config.enhacnedSync.msync").tag(EnhancedSync.msync)
+                VStack(alignment: .leading) {
+                    Picker("config.enhancedSync", selection: $bottle.settings.enhancedSync) {
+                        Text("config.enhancedSync.none").tag(EnhancedSync.none)
+                        Text("config.enhacnedSync.esync").tag(EnhancedSync.esync)
+                        Text("config.enhacnedSync.msync").tag(EnhancedSync.msync)
+                    }
+                    Text("config.enhancedSync.description")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
                 SettingItemView(title: "config.dpi", loadingState: dpiConfigLoadingState) {
                     Button("config.inspect") {
@@ -103,6 +108,9 @@ struct ConfigView: View {
                     Toggle(isOn: $bottle.settings.avxEnabled) {
                         VStack(alignment: .leading) {
                             Text("config.avx")
+                            Text("config.avx.description")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
                             if bottle.settings.avxEnabled {
                                 HStack(alignment: .firstTextBaseline) {
                                     Image(systemName: "exclamationmark.triangle.fill")
@@ -119,7 +127,12 @@ struct ConfigView: View {
             }
             Section("config.title.dxvk", isExpanded: $dxvkSectionExpanded) {
                 Toggle(isOn: $bottle.settings.dxvk) {
-                    Text("config.dxvk")
+                    VStack(alignment: .leading) {
+                        Text("config.dxvk")
+                        Text("config.dxvk.description")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
                 }
                 .onChange(of: bottle.settings.dxvk) { _, newValue in
                     if !newValue {
@@ -128,16 +141,26 @@ struct ConfigView: View {
                     }
                 }
                 Toggle(isOn: $bottle.settings.dxvkAsync) {
-                    Text("config.dxvk.async")
+                    VStack(alignment: .leading) {
+                        Text("config.dxvk.async")
+                        Text("config.dxvk.async.description")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
                 }
                 .disabled(!bottle.settings.dxvk)
-                Picker("config.dxvkHud", selection: $bottle.settings.dxvkHud) {
-                    Text("config.dxvkHud.full").tag(DXVKHUD.full)
-                    Text("config.dxvkHud.partial").tag(DXVKHUD.partial)
-                    Text("config.dxvkHud.fps").tag(DXVKHUD.fps)
-                    Text("config.dxvkHud.off").tag(DXVKHUD.off)
+                VStack(alignment: .leading) {
+                    Picker("config.dxvkHud", selection: $bottle.settings.dxvkHud) {
+                        Text("config.dxvkHud.full").tag(DXVKHUD.full)
+                        Text("config.dxvkHud.partial").tag(DXVKHUD.partial)
+                        Text("config.dxvkHud.fps").tag(DXVKHUD.fps)
+                        Text("config.dxvkHud.off").tag(DXVKHUD.off)
+                    }
+                    .disabled(!bottle.settings.dxvk)
+                    Text("config.dxvkHud.description")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
-                .disabled(!bottle.settings.dxvk)
             }
             Section("config.title.metal", isExpanded: $metalSectionExpanded) {
                 Toggle(isOn: $bottle.settings.metalHud) {

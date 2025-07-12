@@ -12,9 +12,9 @@ Whisky has been optimized with significant gaming performance improvements for A
 - **Metal Performance**: Enhanced Metal graphics API support with HUD logging for macOS gaming
 
 ### **Enhanced DirectX Gaming**
-- **DXVK Enabled by Default**: Dramatic DirectX 10/11 performance improvement out of the box
+- **DXVK Enabled by Default**: Improved DirectX 10/11 compatibility and reduced stuttering
 - **DXVK Async**: Smoother shader compilation for better gaming experience
-- **DXVK Improvements**: Optimized DirectX to Vulkan translation for gaming performance
+- **DXVK Improvements**: Better DirectX to Vulkan translation for gaming compatibility
 
 ### **Graphics and Performance**
 - **High-DPI Gaming**: Automatic scaling for modern high-resolution displays
@@ -29,18 +29,19 @@ Whisky has been optimized with significant gaming performance improvements for A
 ## 🎯 Gaming Configuration Features
 
 ### **DXVK Configuration for Gaming**
-**DXVK is now enabled by default** for optimal gaming performance with DirectX 10/11 games.
+**DXVK is now enabled by default** for better DirectX 10/11 compatibility and reduced stuttering.
 
 **When DXVK Helps Most:**
-- ✅ **DirectX 10/11 games** - Significant performance improvement
-- ✅ **Modern AAA games** - Better frame rates and stability
-- ✅ **Games with shader compilation issues** - DXVK Async helps
-- ✅ **Most Windows games** - General performance improvement
+- ✅ **DirectX 10/11 games** - Better compatibility and reduced stuttering
+- ✅ **Games with shader compilation issues** - DXVK Async helps reduce hitches
+- ✅ **Older DirectX games** - Improved compatibility on modern systems
+- ✅ **Games with rendering issues** - May resolve DirectX translation problems
 
-**When to Disable DXVK:**
-- ❌ **Older DirectX 9 games** - May cause compatibility issues
-- ❌ **Games with rendering problems** - Some games may have visual glitches
-- ❌ **If performance is worse** - Rare cases where native DirectX performs better
+**When DXVK May Not Help:**
+- ⚠️ **Well-optimized modern games** - Games like Baldur's Gate 3 may not see FPS improvements
+- ⚠️ **DirectX 9 games** - Limited benefits, potential compatibility issues
+- ⚠️ **Games already running well** - Performance gains vary significantly by game
+- ⚠️ **CPU-bound games** - DXVK primarily helps with graphics, not CPU performance
 
 **How to Disable DXVK (if needed):**
 1. **Open your bottle settings**
@@ -83,10 +84,15 @@ Whisky has been optimized with significant gaming performance improvements for A
 ## 📊 Performance Expectations
 
 ### **What You Should See**
-- **Better Frame Rates**: Improved gaming performance on Apple Silicon
-- **Reduced Stuttering**: Better shader compilation and caching
-- **Improved Compatibility**: More games should run without issues
-- **Enhanced Graphics**: Better DirectX 12 and raytracing support
+- **Reduced Stuttering**: Better shader compilation and caching, especially during gameplay
+- **Improved Compatibility**: More DirectX 10/11 games should run without issues  
+- **Stable Performance**: More consistent frame times in supported games
+- **Better Graphics**: Improved DirectX rendering in games with translation issues
+
+### **Realistic Performance Notes**
+- **FPS Improvements**: Vary significantly by game - some may see little to no FPS increase
+- **Well-Optimized Games**: Modern games like Baldur's Gate 3 may already run well without DXVK
+- **DXVK Version**: Currently using DXVK-macOS v1.10.3 (July 2023) - older than upstream DXVK v2.7+
 
 ### **Games That Benefit Most**
 - **DirectX 12 Games**: Significant performance improvements
